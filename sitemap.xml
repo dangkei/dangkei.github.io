@@ -2,77 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2021/07/01/how-java-io-work/</loc>
+    <loc>http://dangkei.github.io/about/index.html</loc>
     
     <lastmod>2021-07-01</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2021/07/01/import-rules/</loc>
+    <loc>http://dangkei.github.io/2021/07/01/how-java-io-work/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/repository/index.html</loc>
+    <loc>http://dangkei.github.io/2021/07/01/import-rules/</loc>
     
     <lastmod>2021-07-01</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>http://dangkei.github.io/repository/index.html</loc>
     
     <lastmod>2021-07-01</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>http://dangkei.github.io/categories/index.html</loc>
     
     <lastmod>2021-05-31</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/books/index.html</loc>
+    <loc>http://dangkei.github.io/books/index.html</loc>
     
     <lastmod>2021-05-31</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/404.html</loc>
+    <loc>http://dangkei.github.io/404.html</loc>
     
     <lastmod>2021-05-31</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/about/index.html</loc>
+    <loc>http://dangkei.github.io/links/index.html</loc>
     
     <lastmod>2021-05-31</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/links/index.html</loc>
+    <loc>http://dangkei.github.io/tags/index.html</loc>
     
     <lastmod>2021-05-31</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
-    
-    <lastmod>2021-05-31</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/07/01/hello-world/</loc>
+    <loc>http://dangkei.github.io/2021/07/01/hello-world/</loc>
     
     <lastmod>1985-10-26</lastmod>
     
@@ -80,7 +73,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>http://dangkei.github.io/</loc>
     <lastmod>2021-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -88,7 +81,7 @@
 
   
   <url>
-    <loc>http://example.com/tags/java/</loc>
+    <loc>http://dangkei.github.io/tags/java/</loc>
     <lastmod>2021-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
