@@ -9,6 +9,13 @@
   </url>
   
   <url>
+    <loc>http://dangkei.github.io/2021/07/01/import-rules/</loc>
+    
+    <lastmod>2021-07-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dangkei.github.io/2021/07/01/how-java-io-work/</loc>
     
     <lastmod>2021-07-05</lastmod>
@@ -16,14 +23,14 @@
   </url>
   
   <url>
-    <loc>http://dangkei.github.io/about/index.html</loc>
+    <loc>http://dangkei.github.io/2021/07/01/hello-world/</loc>
     
-    <lastmod>2021-07-01</lastmod>
+    <lastmod>2021-07-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dangkei.github.io/2021/07/01/import-rules/</loc>
+    <loc>http://dangkei.github.io/about/index.html</loc>
     
     <lastmod>2021-07-01</lastmod>
     
@@ -71,13 +78,6 @@
     
   </url>
   
-  <url>
-    <loc>http://dangkei.github.io/2021/07/01/hello-world/</loc>
-    
-    <lastmod>1985-10-26</lastmod>
-    
-  </url>
-  
 
   <url>
     <loc>http://dangkei.github.io/</loc>
@@ -88,12 +88,33 @@
 
   
   <url>
-    <loc>http://dangkei.github.io/tags/java/</loc>
+    <loc>http://dangkei.github.io/tags/IO/</loc>
+    <lastmod>2021-07-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/tags/static-import/</loc>
     <lastmod>2021-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
 
+  
+  <url>
+    <loc>http://dangkei.github.io/categories/hexo/</loc>
+    <lastmod>2021-07-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/categories/java/</loc>
+    <lastmod>2021-07-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
 </urlset>
