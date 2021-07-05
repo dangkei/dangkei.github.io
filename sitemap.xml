@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://dangkei.github.io/2021/07/05/java-standard-IO-vs-new-IO/</loc>
+    <loc>http://dangkei.github.io/2021/07/01/import-rules/</loc>
     
     <lastmod>2021-07-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dangkei.github.io/2021/07/01/import-rules/</loc>
+    <loc>http://dangkei.github.io/2021/07/05/java-standard-IO-vs-new-IO/</loc>
     
     <lastmod>2021-07-05</lastmod>
     
@@ -78,6 +78,13 @@
     
   </url>
   
+  <url>
+    <loc>http://dangkei.github.io/404.html</loc>
+    
+    <lastmod>2021-05-31</lastmod>
+    
+  </url>
+  
 
   <url>
     <loc>http://dangkei.github.io/</loc>
@@ -95,7 +102,14 @@
   </url>
   
   <url>
-    <loc>http://dangkei.github.io/tags/static-import/</loc>
+    <loc>http://dangkei.github.io/tags/static/</loc>
+    <lastmod>2021-07-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/tags/import/</loc>
     <lastmod>2021-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
