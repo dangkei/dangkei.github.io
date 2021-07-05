@@ -17,18 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>分类 | title</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://dangkei.github.io/categories/index.html">
+  <title>Java的标准IO与新IO有什么区别 | title</title>
+  <meta name="description" content="jdk1.4引入了Java新的输入&#x2F;输出（NIO）。在标准IO离开的地方，NIO向Java库提供了高速、面向块的IO。 通过定义类来保存数据，并通过在块中处理这些数据，NIO利用了低级优化的优势，其方式是java.io文件如果不使用本机代码，包就无法。 在本文中，我们将重点确定标准IO与新IO之间最显著的区别，在决定下一个项目中使用哪一个IO之前，我们必须知道这些差异。 召回标准IO JavaI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的标准IO与新IO有什么区别">
+<meta property="og:url" content="http://dangkei.github.io/2021/07/05/java-standard-IO-vs-new-IO/index.html">
 <meta property="og:site_name" content="Huang Feng’s Blog">
+<meta property="og:description" content="jdk1.4引入了Java新的输入&#x2F;输出（NIO）。在标准IO离开的地方，NIO向Java库提供了高速、面向块的IO。 通过定义类来保存数据，并通过在块中处理这些数据，NIO利用了低级优化的优势，其方式是java.io文件如果不使用本机代码，包就无法。 在本文中，我们将重点确定标准IO与新IO之间最显著的区别，在决定下一个项目中使用哪一个IO之前，我们必须知道这些差异。 召回标准IO JavaI">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-05T07:35:42.586Z">
-<meta property="article:modified_time" content="2021-05-31T02:54:50.000Z">
+<meta property="article:published_time" content="2021-07-05T07:42:37.000Z">
+<meta property="article:modified_time" content="2021-07-05T07:51:57.972Z">
 <meta property="article:author" content="Huang Feng">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://dangkei.github.io/categories/index.html">
+  <link rel="canonical" href="http://dangkei.github.io/2021/07/05/java-standard-IO-vs-new-IO/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Huang Feng’s Blog" type="application/atom+xml">
   
@@ -318,24 +321,194 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="article article-categories article-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">分类</h1>
-      <p class="text-muted hidden-xs">共 0 个分类</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/categories">All</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-java-standard-IO-vs-new-IO" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java的标准IO与新IO有什么区别
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/07/05/java-standard-IO-vs-new-IO/" class="article-date">
+	  <time datetime="2021-07-05T07:42:37.000Z" itemprop="datePublished">2021-07-05</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/java/" rel="tag">java</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/07/05/java-standard-IO-vs-new-IO/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <blockquote>
+<p>jdk1.4引入了Java新的输入/输出（NIO）。在标准IO离开的地方，NIO向Java库提供了高速、面向块的IO。</p>
+<p>通过定义类来保存数据，并通过在块中处理这些数据，NIO利用了低级优化的优势，其方式是java.io文件如果不使用本机代码，包就无法。</p>
+<p>在本文中，我们将重点确定标准IO与新IO之间最显著的区别，在决定下一个项目中使用哪一个IO之前，我们必须知道这些差异。</p>
+<p>召回标准IO</p>
+<p>JavaIO是指计算机与世界其他地区之间，或是单个程序与计算机其余部分之间的接口。</p>
+<p>在Java编程中，IO类直到最近才使用流隐喻来实现。所有IO都被视为单个字节的移动，一次一个，通过一个名为流的对象。</p>
+<p>流IO用于与外界接触。它也用于内部，用于将对象转换为字节，然后返回对象。它被称为序列化和反序列化。</p>
+<p>引入Java新IO</p>
+<p>JavaNIO的创建是为了允许Java程序员实现高速输入输出操作，而不必编写自定义的本机代码。</p>
+<p>NIO将最耗时的I/O活动（即填充和排空缓冲区）移回操作系统，从而使速度大大提高。</p>
+<p>如果以上介绍让你口渴，那么不要担心你会不会在我们前进的时候感觉好一些。我们先找出不同点。</p>
+<p>学习NIO的先决条件</p>
+<p>javai/O如何在底层内部工作？</p>
+<p>这篇博文主要讨论与I/O相关的事情是如何在较低级别上工作的。这篇文章的读者想知道javai/O操作是如何在机器级别映射的，以及应用程序运行时硬件一直在做什么。我假设您熟悉基本的IO操作，例如读取文件、通过javai/oapi编写文件；因为这超出了本文的范围。</p>
+<p>标准IO和NIO之间的差异</p>
+<p>在本教程中，我将重点介绍在决定在下一个项目中使用哪一个之前必须知道的最显著的差异。</p>
+</blockquote>
+
       
     </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://dangkei.github.io/2021/07/05/java-standard-IO-vs-new-IO/" title="Java的标准IO与新IO有什么区别" target="_blank" rel="external">http://dangkei.github.io/2021/07/05/java-standard-IO-vs-new-IO/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/dangkei" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/dangkei" target="_blank"><span class="text-dark">dangkei</span><small class="ml-1x">Java Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
   </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2021/07/01/how-java-io-work/" title="Java IO内部是如何工作的?"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
+
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 	
 	
@@ -392,6 +565,39 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 

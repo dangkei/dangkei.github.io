@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://dangkei.github.io/about/index.html</loc>
+    <loc>http://dangkei.github.io/2021/07/05/java-standard-IO-vs-new-IO/</loc>
     
-    <lastmod>2021-07-01</lastmod>
+    <lastmod>2021-07-05</lastmod>
     
   </url>
   
   <url>
     <loc>http://dangkei.github.io/2021/07/01/how-java-io-work/</loc>
+    
+    <lastmod>2021-07-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/about/index.html</loc>
     
     <lastmod>2021-07-01</lastmod>
     
@@ -30,7 +37,7 @@
   </url>
   
   <url>
-    <loc>http://dangkei.github.io/categories/index.html</loc>
+    <loc>http://dangkei.github.io/404.html</loc>
     
     <lastmod>2021-05-31</lastmod>
     
@@ -44,14 +51,14 @@
   </url>
   
   <url>
-    <loc>http://dangkei.github.io/404.html</loc>
+    <loc>http://dangkei.github.io/links/index.html</loc>
     
     <lastmod>2021-05-31</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dangkei.github.io/links/index.html</loc>
+    <loc>http://dangkei.github.io/categories/index.html</loc>
     
     <lastmod>2021-05-31</lastmod>
     
@@ -74,7 +81,7 @@
 
   <url>
     <loc>http://dangkei.github.io/</loc>
-    <lastmod>2021-07-01</lastmod>
+    <lastmod>2021-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -82,7 +89,7 @@
   
   <url>
     <loc>http://dangkei.github.io/tags/java/</loc>
-    <lastmod>2021-07-01</lastmod>
+    <lastmod>2021-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
