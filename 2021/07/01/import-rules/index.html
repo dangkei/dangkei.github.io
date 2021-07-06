@@ -18,15 +18,15 @@
   
   
   <title>静态导入声明的一些重要规则 | title</title>
-  <meta name="description" content="下面是关于静态导入声明的一些重要规则。 1） 如果导入两个具有相同简单名称的静态成员，一个使用单个静态导入声明，另一个使用静态按需导入声明，则使用单个静态导入声明导入的静态成员优先。 假设有两个类，package1.Class1和package2.Class2。两个类都有一个名为methodA的静态方法。以下代码将使用package1.Class1.methodA（）方法，因为它是使用单个静态导">
+  <meta name="description" content="import static静态导入是JDK1.5中的新特性。一般我们导入一个类都用 import com…..ClassName;而静态导入是这样：import static com…..ClassName.;这里的多了个static，还有就是类名ClassName后面多了个 . ，意思是导入这个类里的静态方法。当然，也可以只导入某个静态方法，只要把 .* 换成静态方法名就行了。然后在这个类中，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="静态导入声明的一些重要规则">
 <meta property="og:url" content="http://dangkei.github.io/2021/07/01/import-rules/index.html">
-<meta property="og:site_name" content="Huang Feng’s Blog">
-<meta property="og:description" content="下面是关于静态导入声明的一些重要规则。 1） 如果导入两个具有相同简单名称的静态成员，一个使用单个静态导入声明，另一个使用静态按需导入声明，则使用单个静态导入声明导入的静态成员优先。 假设有两个类，package1.Class1和package2.Class2。两个类都有一个名为methodA的静态方法。以下代码将使用package1.Class1.methodA（）方法，因为它是使用单个静态导">
+<meta property="og:site_name" content="Bomblebee">
+<meta property="og:description" content="import static静态导入是JDK1.5中的新特性。一般我们导入一个类都用 import com…..ClassName;而静态导入是这样：import static com…..ClassName.;这里的多了个static，还有就是类名ClassName后面多了个 . ，意思是导入这个类里的静态方法。当然，也可以只导入某个静态方法，只要把 .* 换成静态方法名就行了。然后在这个类中，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-01T07:59:18.000Z">
-<meta property="article:modified_time" content="2021-07-05T08:26:58.556Z">
+<meta property="article:modified_time" content="2021-07-06T08:08:07.770Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="static">
 <meta property="article:tag" content="import">
@@ -34,7 +34,7 @@
   <!-- Canonical links -->
   <link rel="canonical" href="http://dangkei.github.io/2021/07/01/import-rules/index.html">
   
-    <link rel="alternate" href="/atom.xml" title="Huang Feng’s Blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Bomblebee" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -380,6 +380,7 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <blockquote>
+<p>import static静态导入是JDK1.5中的新特性。一般我们导入一个类都用 import com…..ClassName;而静态导入是这样：import static com…..ClassName.<em>;这里的多了个static，还有就是类名ClassName后面多了个 .</em> ，意思是导入这个类里的静态方法。当然，也可以只导入某个静态方法，只要把 .* 换成静态方法名就行了。然后在这个类中，就可以直接用方法名调用静态方法，而不必用ClassName.方法名 的方式来调用。<br>这种方法的好处就是可以简化一些操作，例如打印操作System.out.println(…);就可以将其写入一个静态方法print(…)，在使用时直接print(…)就可以了。<br>但是这种方法建议在有很多重复调用的时候使用，如果仅有一到两次调用，不如直接写来的方便 </p>
 <p>下面是关于静态导入声明的一些重要规则。</p>
 <p>1） 如果导入两个具有相同简单名称的静态成员，一个使用单个静态导入声明，另一个使用静态按需导入声明，则使用单个静态导入声明导入的静态成员优先。</p>
 <p>假设有两个类，package1.Class1和package2.Class2。两个类都有一个名为methodA的静态方法。以下代码将使用package1.Class1.methodA（）方法，因为它是使用单个静态导入声明导入的：</p>
