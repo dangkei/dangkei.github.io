@@ -26,7 +26,7 @@
 <meta property="og:description" content="Java Standard IO vs New IO Java 新输入&#x2F;输出 (NIO)是随 JDK 1.4 引入的。从标准 IO 的角度出发，NIO 为 Java 库提供了高速、面向块的 IO。 通过定义类来保存数据，并通过在块中处理该数据，NIO 以一种java.io包无法使用的方式利用低级优化，而不使用本机代码。 在本文中，我们将重点确定标准 IO 与新 IO 之间最显着的差异，在决定在下一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-05T07:42:37.000Z">
-<meta property="article:modified_time" content="2021-07-07T06:39:29.562Z">
+<meta property="article:modified_time" content="2021-07-07T06:43:24.050Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="IO">
 <meta name="twitter:card" content="summary">
@@ -431,6 +431,7 @@
 <p>如果您需要同时管理数千个打开的连接，每个连接只发送少量数据，例如聊天服务器，在 NIO 中实现服务器可能是一个优势。同样，如果您需要与其他计算机保持大量开放连接，例如在 P2P 网络中，使用单个线程来管理所有出站连接可能是一个优势。</p>
 <p>如果您的连接较少且带宽非常高，一次发送大量数据，则应该选择标准 IO 服务器实现。</p>
 </blockquote>
+<p>本文翻译自：<br><a target="_blank" rel="noopener" href="https://howtodoinjava.com/java/io/difference-between-io-nio/">https://howtodoinjava.com/java/io/difference-between-io-nio/</a> </p>
 
       
     </div>
