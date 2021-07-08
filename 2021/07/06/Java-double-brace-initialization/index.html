@@ -17,7 +17,7 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Java大括号初始化对象 | title</title>
+  <title>Java大括号初始化对象 | Feng.Huang</title>
   <meta name="description" content="Java Double Brace Initialization 1. 创建和初始化不带双大括号的对象您不觉得Java应该为集合（List、Map、Set等）提供更方便的语法吗。我之所以这么说，是因为每次如果我们必须在代码中使用集合，那么我们就必须执行以下操作- 为临时集合声明变量 创建一个新的空集合，并在变量中存储对它的引用 把东西收藏起来 将集合传递给方法 例如：WithoutDoubleBr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java大括号初始化对象">
@@ -26,7 +26,7 @@
 <meta property="og:description" content="Java Double Brace Initialization 1. 创建和初始化不带双大括号的对象您不觉得Java应该为集合（List、Map、Set等）提供更方便的语法吗。我之所以这么说，是因为每次如果我们必须在代码中使用集合，那么我们就必须执行以下操作- 为临时集合声明变量 创建一个新的空集合，并在变量中存储对它的引用 把东西收藏起来 将集合传递给方法 例如：WithoutDoubleBr">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-06T10:30:00.000Z">
-<meta property="article:modified_time" content="2021-07-07T10:07:07.876Z">
+<meta property="article:modified_time" content="2021-07-08T01:19:12.522Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="Initialization">
 <meta name="twitter:card" content="summary">
@@ -413,9 +413,14 @@
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoubleBrace</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        useParamsInSomeMethod(<span class="keyword">new</span> HashSet&lt;String&gt;() &#123;</span><br><span class="line">            &#123;</span><br><span class="line">                add(<span class="string">&quot;param one&quot;</span>);</span><br><span class="line">                add(<span class="string">&quot;param two&quot;</span>);</span><br><span class="line">                add(<span class="string">&quot;param three&quot;</span>);</span><br><span class="line">                add(<span class="string">&quot;param four&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">useParamsInSomeMethod</span><span class="params">(HashSet&lt;String&gt; params)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//perform some operation</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<h5 id="3-双大括号初始化如何工作？"><a href="#3-双大括号初始化如何工作？" class="headerlink" title="3. 双大括号初始化如何工作？"></a>3. 双大括号初始化如何工作？</h5><p>让我们了解这是如何工作的。第一个大括号创建一个新的匿名内部类。这些内部类能够访问其父类的行为。所以，在我们的例子中，我们实际上是在创建HashSet类的子类，所以这个内部类能够使用add（）方法。</p>
-<p>第二组大括号只不过是实例初始值设定项。如果您提醒核心java概念，那么您可以很容易地将实例初始值设定项块与静态初始值设定项相关联，因为类似于大括号的结构。唯一的区别是，静态初始值设定项是用static关键字添加的，并且只运行一次；不管您创建了多少个对象。</p>
-<h5 id="4-摘要"><a href="#4-摘要" class="headerlink" title="4. 摘要"></a>4. 摘要</h5><ol>
+<h5 id="3-双大括号初始化如何工作？"><a href="#3-双大括号初始化如何工作？" class="headerlink" title="3. 双大括号初始化如何工作？"></a>3. 双大括号初始化如何工作？</h5><p>让我们了解这是如何工作的。</p>
+<ul>
+<li><p>第一个大括号创建一个新的匿名内部类。这些内部类能够访问其父类的行为。所以，在我们的例子中，我们实际上是在创建HashSet类的子类，所以这个内部类能够使用add（）方法。</p>
+</li>
+<li><p>第二组大括号只不过是初始化实例。如果您提醒核心java概念，那么您可以很容易地将实例初始值设定项块与静态初始值设定项相关联，因为类似于大括号的结构。唯一的区别是，静态初始值设定项是用static关键字添加的，并且只运行一次；不管您创建了多少个对象。</p>
+</li>
+</ul>
+<h5 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h5><ol>
 <li><p>因为用双括号初始化的类基本上是内部类。所以我们可以为所有其他类创建它们，直到它们不是最终的。</p>
 </li>
 <li><p>如果没有显式修改equals（）方法以使用这些类，则不应使用此类类，因为equals（）方法通常也会检查类的相等性。</p>
