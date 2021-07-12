@@ -18,15 +18,15 @@
   
   
   <title>nodejs里写一个自定义的redis客户端 | Feng</title>
-  <meta name="description" content="还没开始写…….">
+  <meta name="description" content="什么是Node.js?   Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。   Node 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。 发布于2009年5月">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nodejs里写一个自定义的redis客户端">
 <meta property="og:url" content="http://dangkei.github.io/2021/07/08/nodejs-redisclient/index.html">
 <meta property="og:site_name" content="Bomblebee">
-<meta property="og:description" content="还没开始写…….">
+<meta property="og:description" content="什么是Node.js?   Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。   Node 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。 发布于2009年5月">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-08T07:23:53.000Z">
-<meta property="article:modified_time" content="2021-07-08T13:16:38.354Z">
+<meta property="article:modified_time" content="2021-07-12T06:41:04.287Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
@@ -389,9 +389,54 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <blockquote>
-<p>还没开始写…….</p>
+<ol>
+<li>什么是Node.js?</li>
+</ol>
 </blockquote>
+<p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 
+</p>
+<p>Node 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。 发布于2009年5月，由Ryan Dahl开发，实质是对Chrome V8引擎进行了封装。
+</p>
+<p>Node对一些特殊用例进行优化，提供替代的API，使得V8在非浏览器环境下运行得更好。V8引擎执行Javascript的速度非常快，性能非常好。 Node是一个基于Chrome JavaScript运行时建立的平台， 用于方便地搭建响应速度快、易于扩展的网络应用。Node 使用事件驱动， 非阻塞I/O 模型而得以轻量和高效，非常适合在分布式设备上运行数据密集型的实时应用。
+</p>
+官网上对其特点描述为：
 
+<ul>
+<li><p>它是一个Javascript运行环境</p>
+</li>
+<li><p>依赖于Chrome V8引擎进行代码解释</p>
+</li>
+<li><p>事件驱动</p>
+</li>
+<li><p>非阻塞I/O</p>
+</li>
+<li><p>轻量、可伸缩，适于实时数据交互应用</p>
+</li>
+<li><p>单进程，单线程</p>
+</li>
+</ul>
+<blockquote>
+<ol start="2">
+<li>Node.js中模块化开发规范<br>Node.js规定一个JavaScript文件就是一个模块，模块内部定义的变量和函数默认情况下在外部无法得到。<br>模块内部可以使用exports对象进行成员导出， 使用require方法导入其他模块。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>自己写一个操作redis的client 模块。</li>
+</ol>
+</blockquote>
+<ul>
+<li>首先我们要在nodejs中使用redis必须下载redis模块，在你的项目文件夹下执行下面命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install redis</span><br></pre></td></tr></table></figure>
+按习惯，我们先在项目文件夹下建一个文件夹modules再在这个文件夹下建一个文件夹redis<br>我希望把redis链接的相关信息写在一个配置文件而不是程序内，所以我首先创建一个redis的配置文件<br>文件名为config.json<br><code>config.json</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;redis&quot;</span>:&#123;</span><br><span class="line">		<span class="string">&quot;port&quot;</span>:<span class="string">&quot;6379&quot;</span>,</span><br><span class="line">		<span class="string">&quot;host&quot;</span>:<span class="string">&quot;localhost&quot;</span>,</span><br><span class="line">		<span class="string">&quot;password&quot;</span>:<span class="string">&quot;password&quot;</span>,</span><br><span class="line">		<span class="string">&quot;detect_buffers&quot;</span>: <span class="string">&quot;true&quot;</span> </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p>开始写redisClient.js,<br>首先把redis插件和自定义的配置文件声明进来</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> redis = <span class="built_in">require</span>(<span class="string">&#x27;redis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> redisOptions = <span class="built_in">require</span>(<span class="string">&#x27;./config&#x27;</span>).redis</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>然后设置redis配置信息，出了连接方式还有缓存设置以及重连机制</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> options = &#123;</span><br><span class="line">  <span class="attr">host</span>: redisOptions.host,</span><br><span class="line">  <span class="attr">port</span>: redisOptions.port,</span><br><span class="line">  <span class="attr">password</span>: redisOptions.pass,</span><br><span class="line">  <span class="attr">detect_buffers</span>: redisOptions.detect_buffers, <span class="comment">// 传入buffer 返回也是buffer 否则会转换成String</span></span><br><span class="line">  <span class="attr">retry_strategy</span>: <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 重连机制</span></span><br><span class="line">    <span class="keyword">if</span> (options.error &amp;&amp; options.error.code === <span class="string">&quot;ECONNREFUSED&quot;</span>) &#123;</span><br><span class="line">      <span class="comment">// End reconnecting on a specific error and flush all commands with</span></span><br><span class="line">      <span class="comment">// a individual error</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;The server refused the connection&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (options.total_retry_time &gt; <span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span>) &#123;</span><br><span class="line">      <span class="comment">// End reconnecting after a specific timeout and flush all commands</span></span><br><span class="line">      <span class="comment">// with a individual error</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;Retry time exhausted&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (options.attempt &gt; <span class="number">10</span>) &#123;</span><br><span class="line">      <span class="comment">// End reconnecting with built in error</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// reconnect after</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.min(options.attempt * <span class="number">100</span>, <span class="number">3000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
