@@ -18,15 +18,15 @@
   
   
   <title>how to use docker (4) | Feng</title>
-  <meta name="description" content="how to create docker image利用 Dockerfile 来创建镜像 使用 docker commit 来扩展一个镜像比较简单，但是不方便在一个团队中分享。我们可以使用 docker build 来创建一个新的镜像。为此，首先需要创建一个 Dockerfile，包含一些如何创建镜像的指令。新建一个镜像文件名称相同的目录和一个 Dockerfile  123E:\code&amp;gt">
+  <meta name="description" content="how to create docker image 之前的教程都是在学习如何使用已有的docker镜像创建容器，今天我们学习一下，使用docker创建自己的镜像容器。我们可以把已经开发好的应用，添加到已有的镜像文件，打包为自己的镜像文件方便使用，到快速安装部署的目的。首先我们可以从这里下载需要打包的应用down load Zip这是一个待办事项的nodejs应用程序，你不必了解nodejs。这只">
 <meta property="og:type" content="article">
 <meta property="og:title" content="how to use docker (4)">
 <meta property="og:url" content="http://dangkei.github.io/2021/07/19/create-docker-image/index.html">
 <meta property="og:site_name" content="Bomblebee">
-<meta property="og:description" content="how to create docker image利用 Dockerfile 来创建镜像 使用 docker commit 来扩展一个镜像比较简单，但是不方便在一个团队中分享。我们可以使用 docker build 来创建一个新的镜像。为此，首先需要创建一个 Dockerfile，包含一些如何创建镜像的指令。新建一个镜像文件名称相同的目录和一个 Dockerfile  123E:\code&amp;gt">
+<meta property="og:description" content="how to create docker image 之前的教程都是在学习如何使用已有的docker镜像创建容器，今天我们学习一下，使用docker创建自己的镜像容器。我们可以把已经开发好的应用，添加到已有的镜像文件，打包为自己的镜像文件方便使用，到快速安装部署的目的。首先我们可以从这里下载需要打包的应用down load Zip这是一个待办事项的nodejs应用程序，你不必了解nodejs。这只">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-19T01:56:54.000Z">
-<meta property="article:modified_time" content="2021-07-19T07:07:43.317Z">
+<meta property="article:modified_time" content="2021-07-19T07:32:56.366Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -393,7 +393,10 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="how-to-create-docker-image"><a href="#how-to-create-docker-image" class="headerlink" title="how to create docker image"></a>how to create docker image</h1><h3 id="利用-Dockerfile-来创建镜像"><a href="#利用-Dockerfile-来创建镜像" class="headerlink" title="利用 Dockerfile 来创建镜像"></a>利用 Dockerfile 来创建镜像</h3><blockquote>
+        <h1 id="how-to-create-docker-image"><a href="#how-to-create-docker-image" class="headerlink" title="how to create docker image"></a>how to create docker image</h1><blockquote>
+<p>之前的教程都是在学习如何使用已有的docker镜像创建容器，今天我们学习一下，使用docker创建自己的镜像容器。<br>我们可以把已经开发好的应用，添加到已有的镜像文件，打包为自己的镜像文件方便使用，到快速安装部署的目的。<br>首先我们可以从这里下载需要打包的应用<br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/dangkei/dangkei.github.io/master/download/app.zip">down load Zip</a><br>这是一个待办事项的nodejs应用程序，你不必了解nodejs。这只是作为一个例子.</p>
+</blockquote>
+<h3 id="利用-Dockerfile-来创建镜像"><a href="#利用-Dockerfile-来创建镜像" class="headerlink" title="利用 Dockerfile 来创建镜像"></a>利用 Dockerfile 来创建镜像</h3><blockquote>
 <p>使用 docker commit 来扩展一个镜像比较简单，但是不方便在一个团队中分享。我们可以使用 docker build 来创建一个新的镜像。为此，首先需要创建一个 Dockerfile，包含一些如何创建镜像的指令。<br>新建一个镜像文件名称相同的目录和一个 Dockerfile</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">E:\code&gt;mkdir dockerapp</span><br><span class="line">E:\code&gt;<span class="built_in">cd</span> dockerapp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -421,6 +424,11 @@
 </ol>
 <p>现在运行<code>docker images</code>  可以看到我们自己新创建的镜像了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">E:\code\dockerapp&gt;docker images</span><br><span class="line">REPOSITORY                   TAG                                        IMAGE ID       CREATED          SIZE</span><br><span class="line">dockerapp                    latest                                     c8f742b494bc   22 minutes ago   294MB</span><br></pre></td></tr></table></figure>
+
+<p>再运行容器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\code\dockerapp&gt;docker run -dp 3000:3000 dockerapp</span><br><span class="line">b6704592a1a6cff48fb30de95bb76af63b376ab855f3ae1dc25b289c7437697e</span><br></pre></td></tr></table></figure>
+<p>打开浏览器访问 <a href="http://localhost:3000端口测试一下结果">http://localhost:3000端口测试一下结果</a><br><image src="file:///C:/Users/ADMINI~1/AppData/Local/Temp/1626679848(1).png"></image></p>
+
       
     </div>
     <div class="article-footer">

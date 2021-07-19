@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dangkei.github.io/2021/07/19/create-docker-image/</loc>
+    
+    <lastmod>2021-07-19</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dangkei.github.io/2021/07/14/how-to-use-docker-3/</loc>
     
     <lastmod>2021-07-19</lastmod>
@@ -17,13 +24,6 @@
   
   <url>
     <loc>http://dangkei.github.io/2021/07/12/how-to-use-hub-docker/</loc>
-    
-    <lastmod>2021-07-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dangkei.github.io/2021/07/19/create-docker-image/</loc>
     
     <lastmod>2021-07-19</lastmod>
     
