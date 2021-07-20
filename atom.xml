@@ -6,7 +6,7 @@
   <link href="http://dangkei.github.io/atom.xml" rel="self"/>
   
   <link href="http://dangkei.github.io/"/>
-  <updated>2021-07-19T08:01:44.198Z</updated>
+  <updated>2021-07-20T03:27:07.809Z</updated>
   <id>http://dangkei.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>how use docker (6) Persisting-our-Data</title>
+    <link href="http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/"/>
+    <id>http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/</id>
+    <published>2021-07-20T02:39:29.000Z</published>
+    <updated>2021-07-20T03:27:07.809Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Persisting-our-Data"><a href="#Persisting-our-Data" class="headerlink" title="Persisting our Data"></a>Persisting our Data</h1><h3 id="卷的概念（Container-Volumes）"><a href="#卷的概念（Container-Volumes）" class="headerlink" title="卷的概念（Container Volumes）"></a>卷的概念（Container Volumes）</h3><ul><li></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Persisting-our-Data&quot;&gt;&lt;a href=&quot;#Persisting-our-Data&quot; class=&quot;headerlink&quot; title=&quot;Persisting our Data&quot;&gt;&lt;/a&gt;Persisting our Data&lt;/h1&gt;&lt;h3 i</summary>
+      
+    
+    
+    
+    <category term="devopts" scheme="http://dangkei.github.io/categories/devopts/"/>
+    
+    
+    <category term="docker" scheme="http://dangkei.github.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>how to use docker (5)</title>
+    <link href="http://dangkei.github.io/2021/07/20/how-to-share-images/"/>
+    <id>http://dangkei.github.io/2021/07/20/how-to-share-images/</id>
+    <published>2021-07-20T01:32:46.000Z</published>
+    <updated>2021-07-20T02:18:46.741Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="分享自己的镜像"><a href="#分享自己的镜像" class="headerlink" title="分享自己的镜像"></a>分享自己的镜像</h1><h3 id="创建docker仓库"><a href="#创建docker仓库" class="headerlink" title="创建docker仓库"></a>创建docker仓库</h3><blockquote><ol><li>要想分享我们创建的镜像首先我们要到<a href="https://hub.docker.com/">docker hub</a>网站上面注册账户并登陆。</li><li>点击<code>Create Repository</code>按钮</li><li>仓库名称 这里使用 <code>dockerapp</code>. 并且确认可见权限为<code>Public</code></li><li>点击 <code>create</code> 按钮。</li></ol></blockquote><blockquote><p>如果创建成功，在页面右边你会看到一个 * Docker commands * 区域以我创建的镜像为例。</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push dangkei/dockerapp:tagname</span><br></pre></td></tr></table></figure><ul><li>在这里dangkei是我注册的docker hub时的用户名</li></ul><h3 id="推送镜像到仓库"><a href="#推送镜像到仓库" class="headerlink" title="推送镜像到仓库"></a>推送镜像到仓库</h3><blockquote><p>看样子是只要把仓库给我的docker命令直接执行就可以完成了。其实并不是这样。<br>当在本地主机上执行此命令后</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">E:\code\blog\Blog&gt;docker push dangkei/dockerapp</span><br><span class="line">The push refers to repository [docker.io/dangkei/dockerapp]</span><br><span class="line">An image does not exist locally with the tag: dangkei/dockerapp</span><br></pre></td></tr></table></figure><blockquote><p>从提示心心可以看到， 本地时没有dangkei/dockerapp这个镜像，所以我们要先修改一下镜像名称</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag dockerapp dangkei/dockerapp</span><br></pre></td></tr></table></figure><p>然后再执行就可以成功了</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">E:\code\blog\Blog&gt;docker push dangkei/dockerapp</span><br><span class="line">Using default tag: latest</span><br><span class="line">The push refers to repository [docker.io/dangkei/dockerapp]</span><br><span class="line">e3db9e44151c: Layer already exists</span><br><span class="line">4d8245689bf1: Layer already exists</span><br><span class="line">202a657d4d12: Layer already exists</span><br><span class="line">4cd6f2e64dab: Layer already exists</span><br><span class="line">8ed905461d2d: Layer already exists</span><br><span class="line">853f8f81c1aa: Layer already exists</span><br><span class="line">0b7ff74144e3: Layer already exists</span><br><span class="line">9a5d14f9f550: Layer already exists</span><br><span class="line">latest: digest: sha256:fc741edbd1e41da5b04aa23e95ed924e09d07ae1bff2f2b1666c21de62d644df size: 2000</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;分享自己的镜像&quot;&gt;&lt;a href=&quot;#分享自己的镜像&quot; class=&quot;headerlink&quot; title=&quot;分享自己的镜像&quot;&gt;&lt;/a&gt;分享自己的镜像&lt;/h1&gt;&lt;h3 id=&quot;创建docker仓库&quot;&gt;&lt;a href=&quot;#创建docker仓库&quot; class=&quot;head</summary>
+      
+    
+    
+    
+    
+    <category term="docker" scheme="http://dangkei.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>how to use docker (4)</title>

@@ -17,16 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>归档: 2021 | Feng</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Bomblebee">
-<meta property="og:url" content="http://dangkei.github.io/archives/2021/page/2/index.html">
+  <title>how use docker (6) Persisting-our-Data | Feng</title>
+  <meta name="description" content="Persisting our Data卷的概念（Container Volumes）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="how use docker (6) Persisting-our-Data">
+<meta property="og:url" content="http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/index.html">
 <meta property="og:site_name" content="Bomblebee">
+<meta property="og:description" content="Persisting our Data卷的概念（Container Volumes）">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-20T02:39:29.000Z">
+<meta property="article:modified_time" content="2021-07-20T03:27:07.809Z">
 <meta property="article:author" content="Huang Feng">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://dangkei.github.io/archives/2021/page/2/index.html">
+  <link rel="canonical" href="http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Bomblebee" type="application/atom+xml">
   
@@ -340,94 +345,180 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档: 2021</h1>
-	      <p class="text-muted">共 3 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-how-use-docker-Persisting-our-Data" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      how use docker (6) Persisting-our-Data
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2021" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2021
-            </a>
-            <!-- <a href="/archives/2021" class="archive-year">2021</a> -->
-          </h3>
-        </div>
-        <div id="collapse2021" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2021">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2021/07/01/how-java-io-work/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2021-07-01T08:17:34.000Z" itemprop="datePublished">2021-07-01</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Java IO内部是如何工作的?
-</a>
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/07/20/how-use-docker-Persisting-our-Data/" class="article-date">
+	  <time datetime="2021-07-20T02:39:29.000Z" itemprop="datePublished">2021-07-20</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/devopts/">devopts</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/docker/" rel="tag">docker</a>
+  </span>
 
 
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/07/20/how-use-docker-Persisting-our-Data/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="Persisting-our-Data"><a href="#Persisting-our-Data" class="headerlink" title="Persisting our Data"></a>Persisting our Data</h1><h3 id="卷的概念（Container-Volumes）"><a href="#卷的概念（Container-Volumes）" class="headerlink" title="卷的概念（Container Volumes）"></a>卷的概念（Container Volumes）</h3><ul>
+<li></li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/" title="how use docker (6) Persisting-our-Data" target="_blank" rel="external">http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/dangkei" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/dangkei" target="_blank"><span class="text-dark">dangkei</span><small class="ml-1x">Java Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
-    
-    
-<a href="/2021/07/01/import-rules/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2021-07-01T07:59:18.000Z" itemprop="datePublished">2021-07-01</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 静态导入声明的一些重要规则
-</a>
-
-
-  
-    
-    
-    
-<a href="/2021/07/01/hello-world/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2021-07-01T06:15:22.557Z" itemprop="datePublished">2021-07-01</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Hello hexo github
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
+  <section id="comments">
   	
+      <div id="vcomments"></div>
     
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <ul class="pager pull-left">
-            
-            <li class="prev">
-                <a href="/archives/2021/">
-                    <i class="icon icon-angle-left"></i>
-                    上一页
-                </a>
-            </li>
-            
-            
-            <li class="next disabled">
-                <a href="javascript:;">
-                    下一页
-                    <i class="icon icon-angle-right"></i>                    
-                </a>
-            </li>
-            
-        </ul>
-        <div class="total-article bar-right">Page 2 of 2</div>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2021/07/20/how-to-share-images/" title="how to use docker (5)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-    
- 	
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -486,6 +577,39 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
