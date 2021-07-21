@@ -17,16 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>how use docker (6) Persisting-our-Data | Feng</title>
-  <meta name="description" content="Persisting our Data卷的概念（Container Volumes） 个人理解卷（volume）就是容器运行时挂载的主机上的磁盘空间 容器挂载的几种方式：   volume方式 最常用的方式 docker帮我们创建容器时创建，默认保存位置在 &#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes 目录中；  bind Mount 比较常用的方式，绑定挂载就是创建容器时候 使用了 -v 参数">
+  <title>how use docker (6) Persisting-Your-Data | Feng</title>
+  <meta name="description" content="Persisting our Data卷的概念（Container Volumes） 个人理解卷（volume）就是容器运行时挂载的主机上的磁盘空间 容器挂载的几种方式：   named volumes方式 最常用的方式 docker帮我们创建容器时创建，默认保存位置在 &#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes 目录中；  bind Mount 比较常用的方式，绑定挂载就是创建容器时候 使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="how use docker (6) Persisting-our-Data">
+<meta property="og:title" content="how use docker (6) Persisting-Your-Data">
 <meta property="og:url" content="http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/index.html">
 <meta property="og:site_name" content="Bomblebee">
-<meta property="og:description" content="Persisting our Data卷的概念（Container Volumes） 个人理解卷（volume）就是容器运行时挂载的主机上的磁盘空间 容器挂载的几种方式：   volume方式 最常用的方式 docker帮我们创建容器时创建，默认保存位置在 &#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes 目录中；  bind Mount 比较常用的方式，绑定挂载就是创建容器时候 使用了 -v 参数">
+<meta property="og:description" content="Persisting our Data卷的概念（Container Volumes） 个人理解卷（volume）就是容器运行时挂载的主机上的磁盘空间 容器挂载的几种方式：   named volumes方式 最常用的方式 docker帮我们创建容器时创建，默认保存位置在 &#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes 目录中；  bind Mount 比较常用的方式，绑定挂载就是创建容器时候 使用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-20T02:39:29.000Z">
-<meta property="article:modified_time" content="2021-07-20T07:23:36.985Z">
+<meta property="article:modified_time" content="2021-07-21T03:22:12.166Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -265,7 +265,7 @@
                 <a class="category-link" href="/categories/devopts/">devopts</a>
               </p>
               <p class="item-title">
-                <a href="/2021/07/20/how-use-docker-Persisting-our-Data/" class="title">how use docker (6) Persisting-our-Data</a>
+                <a href="/2021/07/20/how-use-docker-Persisting-our-Data/" class="title">how use docker (6) Persisting-Your-Data</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-07-20T02:39:29.000Z" itemprop="datePublished">2021-07-20</time>
@@ -295,7 +295,7 @@
                 <a class="category-link" href="/categories/devopts/">devopts</a>
               </p>
               <p class="item-title">
-                <a href="/2021/07/19/create-docker-image/" class="title">how to use docker (4)</a>
+                <a href="/2021/07/19/create-docker-image/" class="title">how to use docker (4) - build your image</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-07-19T01:56:54.000Z" itemprop="datePublished">2021-07-19</time>
@@ -310,7 +310,7 @@
                 <a class="category-link" href="/categories/devopts/">devopts</a>
               </p>
               <p class="item-title">
-                <a href="/2021/07/14/how-to-use-docker-3/" class="title">how to use docker (3)</a>
+                <a href="/2021/07/14/how-to-use-docker-3/" class="title">how to use docker (3) Pull an Image from Docker Repository</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-07-14T03:05:07.000Z" itemprop="datePublished">2021-07-14</time>
@@ -325,7 +325,7 @@
                 <a class="category-link" href="/categories/devopts/">devopts</a>
               </p>
               <p class="item-title">
-                <a href="/2021/07/13/how-to-use-docker-2/" class="title">how to use docker (2)</a>
+                <a href="/2021/07/13/how-to-use-docker-2/" class="title">how to use docker (2) Mount host File or Floder</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-07-13T06:33:59.000Z" itemprop="datePublished">2021-07-13</time>
@@ -353,7 +353,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      how use docker (6) Persisting-our-Data
+      how use docker (6) Persisting-Your-Data
     </h1>
   
 
@@ -397,7 +397,7 @@
 <li>个人理解卷（volume）就是容器运行时挂载的主机上的磁盘空间</li>
 <li>容器挂载的几种方式：<blockquote>
 <ol>
-<li> volume方式 最常用的方式 docker帮我们创建容器时创建，默认保存位置在 /var/lib/docker/volumes 目录中；</li>
+<li> named volumes方式 最常用的方式 docker帮我们创建容器时创建，默认保存位置在 /var/lib/docker/volumes 目录中；</li>
 <li> bind Mount 比较常用的方式，绑定挂载就是创建容器时候 使用了 -v 参数指定主机上的目录， 但是移植可能不同操作系统可能会不兼容。比如window和linux操作系统之间</li>
 <li> tmpfs 一般不会用， 挂载在宿主机的内存中的方式</li>
 </ol>
@@ -414,7 +414,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/" title="how use docker (6) Persisting-our-Data" target="_blank" rel="external">http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/</a>
+      <a href="http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/" title="how use docker (6) Persisting-Your-Data" target="_blank" rel="external">http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/</a>
     </li>
     
     <li class="post-copyright-license">
