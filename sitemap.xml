@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dangkei.github.io/2021/07/21/how-to-use-docker-7/</loc>
+    
+    <lastmod>2021-07-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/2021/07/12/how-to-use-hub-docker/</loc>
+    
+    <lastmod>2021-07-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dangkei.github.io/2021/07/14/how-to-use-docker-3/</loc>
     
     <lastmod>2021-07-21</lastmod>
@@ -16,14 +30,7 @@
   </url>
   
   <url>
-    <loc>http://dangkei.github.io/2021/07/12/how-to-use-hub-docker/</loc>
-    
-    <lastmod>2021-07-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/</loc>
+    <loc>http://dangkei.github.io/2021/07/20/how-to-use-docker-6/</loc>
     
     <lastmod>2021-07-21</lastmod>
     
@@ -151,7 +158,7 @@
 
   <url>
     <loc>http://dangkei.github.io/</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -159,49 +166,49 @@
   
   <url>
     <loc>http://dangkei.github.io/tags/IO/</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/static/</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/import/</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/Initialization/</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/lambda/</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/redis/</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/docker/</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -210,21 +217,21 @@
   
   <url>
     <loc>http://dangkei.github.io/categories/hexo/</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/java/</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/devopts/</loc>
-    <lastmod>2021-07-21</lastmod>
+    <lastmod>2021-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
