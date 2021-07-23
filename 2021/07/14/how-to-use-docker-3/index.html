@@ -26,7 +26,7 @@
 <meta property="og:description" content="根据昨天经验，今天再把本地的mysql数据库环境转移到docker  1. pull image 第一步还是要拉镜像版本选择和原环境相同的版本  1docker pull mysql:5.7.25 2. run image 还是先直接把命令行脚本发出了，我们在一步步详细解说，  1docker run -dp 3306:3306 --name mysql  -e MYSQL_ROOT_PASSW">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-14T03:05:07.000Z">
-<meta property="article:modified_time" content="2021-07-21T03:27:19.588Z">
+<meta property="article:modified_time" content="2021-07-23T08:52:09.390Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -217,7 +217,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devopts/">devopts</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devopts/">devopts</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -265,7 +265,7 @@
                 <a class="category-link" href="/categories/devopts/">devopts</a>
               </p>
               <p class="item-title">
-                <a href="/2021/07/23/how-to-use-docker-9/" class="title">how to use docker （9）images layer and cached</a>
+                <a href="/2021/07/23/how-to-use-docker-9/" class="title">how to use docker (9) images layer and cached</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-07-23T02:02:35.000Z" itemprop="datePublished">2021-07-23</time>
@@ -322,10 +322,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                
+                <a class="category-link" href="/categories/devopts/">devopts</a>
               </p>
               <p class="item-title">
-                <a href="/2021/07/20/how-to-share-images/" class="title">how to use docker (5) - share your images</a>
+                <a href="/2021/07/20/how-to-use-docker-5/" class="title">how to use docker (5) - share your images</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-07-20T01:32:46.000Z" itemprop="datePublished">2021-07-20</time>
@@ -410,9 +410,8 @@
 <ul>
 <li>设置root密码<br><br><code>-e MYSQL_ROOT_PASSWORD=123456</code></li>
 </ul>
-<p><code>/etc/mysql/conf.d</code></p>
 <blockquote>
-<p>对于这个目录最新官方MySQL(5.7.19)的docker镜像在创建时映射的配置文件目录有所不同，在此记录并分享给大家：</p>
+<p>对于<code>/etc/mysql/conf.d</code>这个目录最新官方MySQL(5.7.19)的docker镜像在创建时映射的配置文件目录有所不同，在此记录并分享给大家：</p>
 </blockquote>
 <p>官方原文：</p>
 <blockquote>
@@ -500,7 +499,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2021/07/19/create-docker-image/" title="how to use docker (4) - build your image"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2021/07/19/how-to-use-docker-4/" title="how to use docker (4) - build your image"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     

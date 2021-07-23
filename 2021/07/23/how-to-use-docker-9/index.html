@@ -17,16 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>how to use docker （9）images layer and cached | Feng</title>
+  <title>how to use docker (9) images layer and cached | Feng</title>
   <meta name="description" content="学习docker最佳实践镜像分层您知道吗，您可以查看镜像的构成要素？使用该docker image history命令，您可以查看用于在镜像中创建每个图层的命令。 使用该docker image history命令查看dockerapp您在本教程前面创建的镜像中的图层。 docker image history docekrapp您应该得到类似这样的输出（日期&#x2F;ID 可能不同）。 12345678">
 <meta property="og:type" content="article">
-<meta property="og:title" content="how to use docker （9）images layer and cached">
+<meta property="og:title" content="how to use docker (9) images layer and cached">
 <meta property="og:url" content="http://dangkei.github.io/2021/07/23/how-to-use-docker-9/index.html">
 <meta property="og:site_name" content="Bomblebee">
 <meta property="og:description" content="学习docker最佳实践镜像分层您知道吗，您可以查看镜像的构成要素？使用该docker image history命令，您可以查看用于在镜像中创建每个图层的命令。 使用该docker image history命令查看dockerapp您在本教程前面创建的镜像中的图层。 docker image history docekrapp您应该得到类似这样的输出（日期&#x2F;ID 可能不同）。 12345678">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-23T02:02:35.000Z">
-<meta property="article:modified_time" content="2021-07-23T06:39:38.819Z">
+<meta property="article:modified_time" content="2021-07-23T09:03:00.204Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -217,7 +217,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devopts/">devopts</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/devopts/">devopts</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -265,7 +265,7 @@
                 <a class="category-link" href="/categories/devopts/">devopts</a>
               </p>
               <p class="item-title">
-                <a href="/2021/07/23/how-to-use-docker-9/" class="title">how to use docker （9）images layer and cached</a>
+                <a href="/2021/07/23/how-to-use-docker-9/" class="title">how to use docker (9) images layer and cached</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-07-23T02:02:35.000Z" itemprop="datePublished">2021-07-23</time>
@@ -322,10 +322,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                
+                <a class="category-link" href="/categories/devopts/">devopts</a>
               </p>
               <p class="item-title">
-                <a href="/2021/07/20/how-to-share-images/" class="title">how to use docker (5) - share your images</a>
+                <a href="/2021/07/20/how-to-use-docker-5/" class="title">how to use docker (5) - share your images</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-07-20T01:32:46.000Z" itemprop="datePublished">2021-07-20</time>
@@ -353,7 +353,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      how to use docker （9）images layer and cached
+      how to use docker (9) images layer and cached
     </h1>
   
 
@@ -425,8 +425,8 @@
 
 <p>.dockerignore文件是有选择地仅复制镜像相关文件的简单方法。您可以在此处阅读更多相关信息。在这种情况下，node_modules应在COPY第二步中省略该文件夹，否则可能会覆盖由该RUN步骤中的命令创建的文件。有关为什么建议将其用于 Node.js 应用程序和其他最佳实践的更多详细信息，请查看他们关于Dockerizing a Node.js Web 应用程序的指南。</p>
 <p>现在docker build -t dockerapp .再次使用构建 Docker镜像。这一次，您的输出应该看起来有点不同。</p>
-<p>使用docker build.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">docker build -t dockerapp .</span><br><span class="line">````</span><br><span class="line"></span><br><span class="line">你应该看到这样的输出......</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">E:\code\dockerapp&gt;docker build -f dockerfile -t dockerapp .</span><br><span class="line">[+] Building 11.8s (10/10) FINISHED</span><br><span class="line"> =&gt; [internal] load build definition from dockerfile                                                                                             1.9s</span><br><span class="line"> =&gt; =&gt; transferring dockerfile: 253B                                                                                                             0.0s</span><br><span class="line"> =&gt; [internal] load .dockerignore                                                                                                                2.7s</span><br><span class="line"> =&gt; =&gt; transferring context: 34B                                                                                                                 0.0s</span><br><span class="line"> =&gt; [internal] load metadata <span class="keyword">for</span> docker.io/library/node:12-alpine                                                                                0.0s</span><br><span class="line"> =&gt; [1/5] FROM docker.io/library/node:12-alpine                                                                                                  0.0s</span><br><span class="line"> =&gt; [internal] load build context                                                                                                                1.3s</span><br><span class="line"> =&gt; =&gt; transferring context: 2.62kB                                                                                                              0.0s</span><br><span class="line"> =&gt; CACHED [2/5] WORKDIR /dockerapp                                                                                                              0.0s</span><br><span class="line"> =&gt; CACHED [3/5] COPY package.json yarn.lock ./                                                                                                  0.0s</span><br><span class="line"> =&gt; CACHED [4/5] RUN yarn install --production                                                                                                   0.0s</span><br><span class="line"> =&gt; [5/5] COPY . .                                                                                                                               2.2s</span><br><span class="line"> =&gt; exporting to image                                                                                                                           4.0s</span><br><span class="line"> =&gt; =&gt; exporting layers                                                                                                                          2.5s</span><br><span class="line"> =&gt; =&gt; writing image sha256:82f9d29c08aaf923900c9ed401965923ee94906d338541ecd60e03e6fce00baa                                                     0.2s</span><br><span class="line"> =&gt; =&gt; naming to docker.io/library/dockerapp                                                                                                     0.2s</span><br></pre></td></tr></table></figure>
+<p>使用docker build. 看到下面的输出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">E:\code\dockerapp&gt;docker build -f dockerfile -t dockerapp .</span><br><span class="line">[+] Building 11.8s (10/10) FINISHED</span><br><span class="line"> =&gt; [internal] load build definition from dockerfile                                                                                             1.9s</span><br><span class="line"> =&gt; =&gt; transferring dockerfile: 253B                                                                                                             0.0s</span><br><span class="line"> =&gt; [internal] load .dockerignore                                                                                                                2.7s</span><br><span class="line"> =&gt; =&gt; transferring context: 34B                                                                                                                 0.0s</span><br><span class="line"> =&gt; [internal] load metadata <span class="keyword">for</span> docker.io/library/node:12-alpine                                                                                0.0s</span><br><span class="line"> =&gt; [1/5] FROM docker.io/library/node:12-alpine                                                                                                  0.0s</span><br><span class="line"> =&gt; [internal] load build context                                                                                                                1.3s</span><br><span class="line"> =&gt; =&gt; transferring context: 2.62kB                                                                                                              0.0s</span><br><span class="line"> =&gt; CACHED [2/5] WORKDIR /dockerapp                                                                                                              0.0s</span><br><span class="line"> =&gt; CACHED [3/5] COPY package.json yarn.lock ./                                                                                                  0.0s</span><br><span class="line"> =&gt; CACHED [4/5] RUN yarn install --production                                                                                                   0.0s</span><br><span class="line"> =&gt; [5/5] COPY . .                                                                                                                               2.2s</span><br><span class="line"> =&gt; exporting to image                                                                                                                           4.0s</span><br><span class="line"> =&gt; =&gt; exporting layers                                                                                                                          2.5s</span><br><span class="line"> =&gt; =&gt; writing image sha256:82f9d29c08aaf923900c9ed401965923ee94906d338541ecd60e03e6fce00baa                                                     0.2s</span><br><span class="line"> =&gt; =&gt; naming to docker.io/library/dockerapp                                                                                                     0.2s</span><br></pre></td></tr></table></figure>
 <p>您会看到所有图层都已重建。非常好，因为我们对 Dockerfile 进行了相当多的更改。</p>
 <p>首先，您应该注意到构建速度要快得多！而且，您会看到步骤 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=&gt; CACHED [4/5] RUN yarn install --production                               0.0s</span><br></pre></td></tr></table></figure>
@@ -449,7 +449,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://dangkei.github.io/2021/07/23/how-to-use-docker-9/" title="how to use docker （9）images layer and cached" target="_blank" rel="external">http://dangkei.github.io/2021/07/23/how-to-use-docker-9/</a>
+      <a href="http://dangkei.github.io/2021/07/23/how-to-use-docker-9/" title="how to use docker (9) images layer and cached" target="_blank" rel="external">http://dangkei.github.io/2021/07/23/how-to-use-docker-9/</a>
     </li>
     
     <li class="post-copyright-license">
