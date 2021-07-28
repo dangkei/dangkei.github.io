@@ -17,21 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>how to use docker (6) Persisting-Your-Data | Feng</title>
-  <meta name="description" content="Persisting our Data卷的概念（Container Volumes） 个人理解卷（volume）就是容器运行时挂载的主机上的磁盘空间 容器挂载的几种方式：   named volumes方式 最常用的方式 docker帮我们创建容器时创建，默认保存位置在 &#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes 目录中；  bind Mount 比较常用的方式，绑定挂载就是创建容器时候 使用">
-<meta property="og:type" content="article">
-<meta property="og:title" content="how to use docker (6) Persisting-Your-Data">
-<meta property="og:url" content="http://dangkei.github.io/2021/07/20/how-to-use-docker-6/index.html">
+  <title>归档: 2019/7 | Feng</title>
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Bomblebee">
+<meta property="og:url" content="http://dangkei.github.io/archives/2019/07/index.html">
 <meta property="og:site_name" content="Bomblebee">
-<meta property="og:description" content="Persisting our Data卷的概念（Container Volumes） 个人理解卷（volume）就是容器运行时挂载的主机上的磁盘空间 容器挂载的几种方式：   named volumes方式 最常用的方式 docker帮我们创建容器时创建，默认保存位置在 &#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes 目录中；  bind Mount 比较常用的方式，绑定挂载就是创建容器时候 使用">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-20T02:39:29.000Z">
-<meta property="article:modified_time" content="2021-07-23T07:05:57.783Z">
 <meta property="article:author" content="Huang Feng">
-<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://dangkei.github.io/2021/07/20/how-to-use-docker-6/index.html">
+  <link rel="canonical" href="http://dangkei.github.io/archives/2019/07/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Bomblebee" type="application/atom+xml">
   
@@ -345,208 +340,48 @@
   
   
 <main class="main" role="main">
-  <div class="content">
-  <article id="post-how-to-use-docker-6" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  	<article class="content article article-archives article-type-list" itemscope="">
+	    <header class="article-header">
+	      <h1 itemprop="title">归档: 2019/7</h1>
+	      <p class="text-muted">共 1 篇文章</p>
+	    </header>
+	    <div class="article-body">
+	      
+  
+  
     
-    <div class="article-header">
+    
       
-        
-  
-    <h1 class="article-title" itemprop="name">
-      how to use docker (6) Persisting-Your-Data
-    </h1>
-  
-
       
-      <div class="article-meta">
-        <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/07/20/how-to-use-docker-6/" class="article-date">
-	  <time datetime="2021-07-20T02:39:29.000Z" itemprop="datePublished">2021-07-20</time>
-	</a>
-</span>
-        
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/devopts/">devopts</a>
-  </span>
-
-        
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/docker/" rel="tag">docker</a>
-  </span>
-
-
-        
-	<span class="article-read hidden-xs">
-	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
-	    <span id="busuanzi_container_page_pv">
-			<span id="busuanzi_value_page_pv">0</span>
-		</span>
-	</span>
-
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/07/20/how-to-use-docker-6/#comments" class="article-comment-link">评论</a></span>
-        
-      </div>
-    </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      
-        <h1 id="Persisting-our-Data"><a href="#Persisting-our-Data" class="headerlink" title="Persisting our Data"></a>Persisting our Data</h1><h2 id="卷的概念（Container-Volumes）"><a href="#卷的概念（Container-Volumes）" class="headerlink" title="卷的概念（Container Volumes）"></a>卷的概念（Container Volumes）</h2><ul>
-<li>个人理解卷（volume）就是容器运行时挂载的主机上的磁盘空间</li>
-<li>容器挂载的几种方式：<blockquote>
-<ol>
-<li> named volumes方式 最常用的方式 docker帮我们创建容器时创建，默认保存位置在 /var/lib/docker/volumes 目录中；</li>
-<li> bind Mount 比较常用的方式，绑定挂载就是创建容器时候 使用了 -v 参数指定主机上的目录， 但是移植可能不同操作系统可能会不兼容。比如window和linux操作系统之间</li>
-<li> tmpfs 一般不会用， 挂载在宿主机的内存中的方式</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<h2 id="卷的管理"><a href="#卷的管理" class="headerlink" title="卷的管理"></a>卷的管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker volume create dockerapp-vol // 创建一个自定义容器卷</span></span><br><span class="line"><span class="comment"># docker volume ls // 查看所有容器卷</span></span><br><span class="line"><span class="comment"># docker volume inspect dockerapp-vol // 查看指定容器卷详情信息</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="持久化应用"><a href="#持久化应用" class="headerlink" title="持久化应用"></a>持久化应用</h2><p>让我们来持久化我们的 dockapp 数据<br>默认情况下，dockapp 应用程序将其数据存储在SQLite 数据库中/etc/todos/todo.db。如果您不熟悉 SQLite，不用担心！它只是一个关系数据库，其中所有数据都存储在一个文件中。虽然这对于大型应用程序来说不是最好的，但它适用于小型演示。稍后我们将讨论将其切换到不同的数据库引擎。</p>
-<p>由于数据库是单个文件，如果我们可以在主机上保留该文件并使其可用于下一个容器，它应该能够从上一个停止的地方继续。通过创建一个卷并将其附加（通常称为“挂载”）到存储数据的目录，我们可以持久化数据。当我们的容器写入todo.db文件时，它将被持久化到卷中的主机。</p>
-<p>如前所述，我们将使用命名卷。将命名卷视为简单的数据桶。Docker 维护磁盘上的物理位置，您只需要记住卷的名称。每次使用该卷时，Docker 都会确保提供正确的数据。</p>
-<p>使用docker volume create命令创建卷。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume create dockerapp-vol</span><br></pre></td></tr></table></figure>
-<p>在仪表板中（或使用docker rm -f <id>）再次停止待办事项应用程序容器，因为它仍在运行而不使用持久卷。</p>
-<p>启动 dockerapp 应用程序容器，但添加-v标志以指定卷安装。我们将使用命名卷并将其挂载到/etc/todos，这将捕获在路径上创建的所有文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dp 3000:3000 -v dockerapp-vol:/etc/todos dockerapp</span><br></pre></td></tr></table></figure>
-<p>容器启动后，打开应用程序并将一些项目添加到您的待办事项列表中。</p>
-<p>添加到待办事项列表的项目</p>
-<p>移除 dockerapp 应用的容器。使用仪表板 或docker ps获取 ID，然后docker rm -f <id>将其删除。</p>
-<p>使用与上面相同的命令启动一个新容器。</p>
-<p>打开应用程序。您应该会看到您之前加入的项目仍在您的列表中！</p>
-<p>完成检查列表后，继续并移除容器。</p>
-
-      
-    </div>
-    <div class="article-footer">
-      <blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接：</strong>
-      <a href="http://dangkei.github.io/2021/07/20/how-to-use-docker-6/" title="how to use docker (6) Persisting-Your-Data" target="_blank" rel="external">http://dangkei.github.io/2021/07/20/how-to-use-docker-6/</a>
-    </li>
-    
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-</blockquote>
-
-
-<div class="panel panel-default panel-badger">
-  <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="https://github.com/dangkei" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
-        </a>
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/dangkei" target="_blank"><span class="text-dark">dangkei</span><small class="ml-1x">Java Developer &amp; Designer</small></a></h3>
-        <div>个人简介。</div>
-      </div>
-    </figure>
-  </div>
-</div>
-
-
-    </div>
-  </article>
-  
-    
-  <section id="comments">
-  	
-      <div id="vcomments"></div>
-    
-  </section>
-
-
-  
-</div>
-
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-  
-  <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/2021/07/21/how-to-use-docker-7/" title="how to use docker (7)- Multi-Container-App"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
-    
-    <li class="next">
-      <a href="/2021/07/20/how-to-use-docker-5/" title="how to use docker (5) - share your images"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
-    </li>
-    
-    
-  </ul>
-  
-  
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
-  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
-    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
-  </div> -->
-  
-  
-  <div class="bar-right">
-    
-    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
-    
-  </div>
-  </div>
-</nav>
-  
-<!-- Modal -->
-<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content donate">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <div class="modal-body">
-        <div class="donate-box">
-          <div class="donate-head">
-            <p>感谢您的支持，我会继续努力的!</p>
-          </div>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
-              <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
-              <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
-            </div>
-          </div>
-          <div class="donate-footer">
-            <ul class="nav nav-tabs nav-justified" role="tablist">
-              <li role="presentation" class="active">
-                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
-              </li>
-              <li role="presentation" class="">
-                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
-              </li>
-            </ul>
-          </div>
+      <section class="panel panel-default b-no">
+        <div class="panel-heading" role="tab">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" href="#collapse2019" aria-expanded="true">
+              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
+              2019
+            </a>
+            <!-- <a href="/archives/2019" class="archive-year">2019</a> -->
+          </h3>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+        <div id="collapse2019" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2019">
+        <div class="panel-body">
+          <div class="collection">
+    
+    
+<a href="/2019/07/28/bug-mark-001/" class="collection-item" target="_blank" itemprop="url">
+  <time datetime="2019-07-28T07:26:31.000Z" itemprop="datePublished">2019-07-28</time>
+  <span>&nbsp;&nbsp;&nbsp;</span> spring 3 不完全兼容 JDK8问题
+</a>
 
 
+  
+  
+    </div></div></div></section>
+  
 
+	    </div>
+  	</article>
+  	 	
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -605,39 +440,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-
-   
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
-   
-    
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine"></script>
-  <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
-  meta = meta.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#vcomments',
-    verify: false,
-    notify: false,
-    appId: '',
-    appKey: '',
-    placeholder: 'Just go go',
-    avatar: 'mm',
-    meta: meta,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  </script>
-
-     
 
 
 

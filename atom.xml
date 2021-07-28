@@ -6,7 +6,7 @@
   <link href="http://dangkei.github.io/atom.xml" rel="self"/>
   
   <link href="http://dangkei.github.io/"/>
-  <updated>2021-07-28T07:48:08.853Z</updated>
+  <updated>2021-07-28T03:38:01.105Z</updated>
   <id>http://dangkei.github.io/</id>
   
   <author>
@@ -15,37 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>spring 3 不完全兼容 JDK8问题</title>
-    <link href="http://dangkei.github.io/2021/07/28/bug-mark-001/"/>
-    <id>http://dangkei.github.io/2021/07/28/bug-mark-001/</id>
-    <published>2021-07-28T07:26:31.000Z</published>
-    <updated>2021-07-28T07:48:08.853Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>今天一个修改一个项目优化后启动报错如下</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.ArrayIndexOutOfBoundsException: 27233</span><br><span class="line">at org.springframework.asm.ClassReader.readClass(Unknown Source)</span><br><span class="line">at org.springframework.asm.ClassReader.accept(Unknown Source)</span><br><span class="line">at org.springframework.asm.ClassReader.accept(Unknown Source)</span><br><span class="line">at org.springframework.core.type.classreading.SimpleMetadataReader.getAnnotationMetadata(SimpleMetadataReader.java:55)</span><br><span class="line">at org.springframework.core.type.filter.AnnotationTypeFilter.matchSelf(AnnotationTypeFilter.java:68)</span><br><span class="line">at org.springframework.core.type.filter.AbstractTypeHierarchyTraversingFilter.match(AbstractTypeHierarchyTraversingFilter.java:55)</span><br><span class="line">at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.isCandidateComponent(ClassPathScanningCandidateComponentProvider.java:252)</span><br><span class="line">at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.findCandidateComponents(ClassPathScanningCandidateComponentProvider.java:192)</span><br><span class="line">at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:201)</span><br><span class="line">at org.springframework.context.annotation.ComponentScanBeanDefinitionParser.parse(ComponentScanBeanDefinitionParser.java:84)</span><br><span class="line">at org.springframework.beans.factory.xml.NamespaceHandlerSupport.parse(NamespaceHandlerSupport.java:69)</span><br><span class="line">at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1297)</span><br><span class="line">at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1287)</span><br><span class="line">at org.apache.xbean.spring.context.v2.XBeanBeanDefinitionDocumentReader.parseBeanDefinitions(XBeanBeanDefinitionDocumentReader.java:84)</span><br><span class="line">at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:92)</span><br><span class="line">at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:507)</span><br><span class="line">at org.apache.xbean.spring.context.v2.XBeanXmlBeanDefinitionReader.registerBeanDefinitions(XBeanXmlBeanDefinitionReader.java:79)</span><br><span class="line">at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:398)</span><br><span class="line">... 35 more</span><br></pre></td></tr></table></figure><blockquote><p>乍一看以为是数组下标越界，但是仔细看是spring容器读取bean错误。 最后网上查了一下资料原来<br>项目JDK版本是1.8，spring的版本是3，spring 3不完全兼容JDK8， 这次的修改自己使用了lambda表达式造成了被修改过的bean不能被spring容器识别。</p></blockquote>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;今天一个修改一个项目优化后启动报错如下&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;li</summary>
-      
-    
-    
-    
-    <category term="bug marked" scheme="http://dangkei.github.io/categories/bug-marked/"/>
-    
-    
-    <category term="lambda" scheme="http://dangkei.github.io/tags/lambda/"/>
-    
-    <category term="spring3" scheme="http://dangkei.github.io/tags/spring3/"/>
-    
-    <category term="JDK8" scheme="http://dangkei.github.io/tags/JDK8/"/>
-    
-  </entry>
   
   <entry>
     <title>code-optimization-js</title>
@@ -480,6 +449,37 @@
     
     
     <category term="concepts" scheme="http://dangkei.github.io/tags/concepts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>spring 3 不完全兼容 JDK8问题</title>
+    <link href="http://dangkei.github.io/2019/07/28/bug-mark-001/"/>
+    <id>http://dangkei.github.io/2019/07/28/bug-mark-001/</id>
+    <published>2019-07-28T07:26:31.000Z</published>
+    <updated>2021-07-28T07:48:57.876Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>今天一个修改一个项目优化后启动报错如下</p></blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.ArrayIndexOutOfBoundsException: 27233</span><br><span class="line">at org.springframework.asm.ClassReader.readClass(Unknown Source)</span><br><span class="line">at org.springframework.asm.ClassReader.accept(Unknown Source)</span><br><span class="line">at org.springframework.asm.ClassReader.accept(Unknown Source)</span><br><span class="line">at org.springframework.core.type.classreading.SimpleMetadataReader.getAnnotationMetadata(SimpleMetadataReader.java:55)</span><br><span class="line">at org.springframework.core.type.filter.AnnotationTypeFilter.matchSelf(AnnotationTypeFilter.java:68)</span><br><span class="line">at org.springframework.core.type.filter.AbstractTypeHierarchyTraversingFilter.match(AbstractTypeHierarchyTraversingFilter.java:55)</span><br><span class="line">at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.isCandidateComponent(ClassPathScanningCandidateComponentProvider.java:252)</span><br><span class="line">at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.findCandidateComponents(ClassPathScanningCandidateComponentProvider.java:192)</span><br><span class="line">at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:201)</span><br><span class="line">at org.springframework.context.annotation.ComponentScanBeanDefinitionParser.parse(ComponentScanBeanDefinitionParser.java:84)</span><br><span class="line">at org.springframework.beans.factory.xml.NamespaceHandlerSupport.parse(NamespaceHandlerSupport.java:69)</span><br><span class="line">at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1297)</span><br><span class="line">at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1287)</span><br><span class="line">at org.apache.xbean.spring.context.v2.XBeanBeanDefinitionDocumentReader.parseBeanDefinitions(XBeanBeanDefinitionDocumentReader.java:84)</span><br><span class="line">at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:92)</span><br><span class="line">at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:507)</span><br><span class="line">at org.apache.xbean.spring.context.v2.XBeanXmlBeanDefinitionReader.registerBeanDefinitions(XBeanXmlBeanDefinitionReader.java:79)</span><br><span class="line">at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:398)</span><br><span class="line">... 35 more</span><br></pre></td></tr></table></figure><blockquote><p>乍一看以为是数组下标越界，但是仔细看是spring容器读取bean错误。 最后网上查了一下资料原来<br>项目JDK版本是1.8，spring的版本是3，spring 3不完全兼容JDK8， 这次的修改自己使用了lambda表达式造成了被修改过的bean不能被spring容器识别。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;今天一个修改一个项目优化后启动报错如下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;li</summary>
+      
+    
+    
+    
+    <category term="bug marked" scheme="http://dangkei.github.io/categories/bug-marked/"/>
+    
+    
+    <category term="lambda" scheme="http://dangkei.github.io/tags/lambda/"/>
+    
+    <category term="spring3" scheme="http://dangkei.github.io/tags/spring3/"/>
+    
+    <category term="JDK8" scheme="http://dangkei.github.io/tags/JDK8/"/>
     
   </entry>
   
