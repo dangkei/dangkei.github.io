@@ -6,7 +6,7 @@
   <link href="http://dangkei.github.io/atom.xml" rel="self"/>
   
   <link href="http://dangkei.github.io/"/>
-  <updated>2021-07-28T03:38:01.105Z</updated>
+  <updated>2021-07-28T10:25:47.721Z</updated>
   <id>http://dangkei.github.io/</id>
   
   <author>
@@ -17,15 +17,27 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>code-optimization-js</title>
+    <title>漂亮的javascript代码？易读还是难读？</title>
     <link href="http://dangkei.github.io/2021/07/28/code-optimization-js/"/>
     <id>http://dangkei.github.io/2021/07/28/code-optimization-js/</id>
     <published>2021-07-28T03:38:00.000Z</published>
-    <updated>2021-07-28T03:38:01.105Z</updated>
+    <updated>2021-07-28T10:25:47.721Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="javascript-优化if"><a href="#javascript-优化if" class="headerlink" title="javascript 优化if"></a>javascript 优化if</h1><blockquote><p>使用if嵌套的代码</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(status==<span class="literal">null</span>)&#123;</span><br><span class="line">statusName=<span class="string">&quot;办理中&quot;</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(status==<span class="string">&quot;3&quot;</span>)&#123;</span><br><span class="line">statusName=<span class="string">&quot;通过&quot;</span>;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">statusName=content.statusName;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">status==<span class="literal">null</span>?statusName=<span class="string">&quot;办理中&quot;</span>:</span><br><span class="line">status==<span class="string">&quot;3&quot;</span>?statusName=<span class="string">&quot;通过&quot;</span>:</span><br><span class="line">statusName=content.statusName;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;javascript-优化if&quot;&gt;&lt;a href=&quot;#javascript-优化if&quot; class=&quot;headerlink&quot; title=&quot;javascript 优化if&quot;&gt;&lt;/a&gt;javascript 优化if&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;使用if嵌</summary>
+      
     
     
     
+    <category term="coding" scheme="http://dangkei.github.io/categories/coding/"/>
     
+    
+    <category term="javascript" scheme="http://dangkei.github.io/tags/javascript/"/>
     
   </entry>
   
