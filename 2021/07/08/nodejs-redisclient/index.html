@@ -18,17 +18,18 @@
   
   
   <title>nodejs里写一个自定义的redis客户端 | Feng</title>
-  <meta name="description" content="什么是Node.js?   Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。   Node 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。 发布于2009年5月">
+  <meta name="description" content="一. 什么是Node.js?Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。   Node 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。 发布于2009年5月">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nodejs里写一个自定义的redis客户端">
 <meta property="og:url" content="http://dangkei.github.io/2021/07/08/nodejs-redisclient/index.html">
 <meta property="og:site_name" content="Bomblebee">
-<meta property="og:description" content="什么是Node.js?   Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。   Node 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。 发布于2009年5月">
+<meta property="og:description" content="一. 什么是Node.js?Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I&#x2F;O 的模型，使其轻量又高效。   Node 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。 发布于2009年5月">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-08T07:23:53.000Z">
-<meta property="article:modified_time" content="2021-07-12T06:41:04.287Z">
+<meta property="article:modified_time" content="2021-07-30T03:20:26.998Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="redis">
+<meta property="article:tag" content="nodejs">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="http://dangkei.github.io/2021/07/08/nodejs-redisclient/index.html">
@@ -227,7 +228,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO/" rel="tag">IO</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Initialization/" rel="tag">Initialization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK8/" rel="tag">JDK8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concepts/" rel="tag">concepts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import/" rel="tag">import</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring3/" rel="tag">spring3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static/" rel="tag">static</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO/" rel="tag">IO</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Initialization/" rel="tag">Initialization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK8/" rel="tag">JDK8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concepts/" rel="tag">concepts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import/" rel="tag">import</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring3/" rel="tag">spring3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static/" rel="tag">static</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -237,7 +238,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/IO/" style="font-size: 13.5px;">IO</a> <a href="/tags/Initialization/" style="font-size: 13px;">Initialization</a> <a href="/tags/JDK8/" style="font-size: 13px;">JDK8</a> <a href="/tags/concepts/" style="font-size: 13px;">concepts</a> <a href="/tags/docker/" style="font-size: 14px;">docker</a> <a href="/tags/import/" style="font-size: 13px;">import</a> <a href="/tags/javascript/" style="font-size: 13px;">javascript</a> <a href="/tags/lambda/" style="font-size: 13.5px;">lambda</a> <a href="/tags/redis/" style="font-size: 13px;">redis</a> <a href="/tags/spring3/" style="font-size: 13px;">spring3</a> <a href="/tags/static/" style="font-size: 13px;">static</a>
+      <a href="/tags/IO/" style="font-size: 13.5px;">IO</a> <a href="/tags/Initialization/" style="font-size: 13px;">Initialization</a> <a href="/tags/JDK8/" style="font-size: 13px;">JDK8</a> <a href="/tags/concepts/" style="font-size: 13px;">concepts</a> <a href="/tags/docker/" style="font-size: 14px;">docker</a> <a href="/tags/import/" style="font-size: 13px;">import</a> <a href="/tags/javascript/" style="font-size: 13px;">javascript</a> <a href="/tags/lambda/" style="font-size: 13.5px;">lambda</a> <a href="/tags/nodejs/" style="font-size: 13px;">nodejs</a> <a href="/tags/redis/" style="font-size: 13px;">redis</a> <a href="/tags/spring3/" style="font-size: 13px;">spring3</a> <a href="/tags/static/" style="font-size: 13px;">static</a>
     </div>
   </div>
 
@@ -369,7 +370,7 @@
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/redis/" rel="tag">redis</a>
+	<a class="article-tag-link-link" href="/tags/nodejs/" rel="tag">nodejs</a>, <a class="article-tag-link-link" href="/tags/redis/" rel="tag">redis</a>
   </span>
 
 
@@ -389,11 +390,8 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <blockquote>
-<ol>
-<li>什么是Node.js?</li>
-</ol>
 </blockquote>
-<p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 
+<h2 id="一-什么是Node-js"><a href="#一-什么是Node-js" class="headerlink" title="一. 什么是Node.js?"></a>一. 什么是Node.js?</h2><p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 
 </p>
 <p>Node 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。 发布于2009年5月，由Ryan Dahl开发，实质是对Chrome V8引擎进行了封装。
 </p>
@@ -415,28 +413,40 @@
 <li><p>单进程，单线程</p>
 </li>
 </ul>
-<blockquote>
-<ol start="2">
-<li>Node.js中模块化开发规范<br>Node.js规定一个JavaScript文件就是一个模块，模块内部定义的变量和函数默认情况下在外部无法得到。<br>模块内部可以使用exports对象进行成员导出， 使用require方法导入其他模块。</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="3">
-<li>自己写一个操作redis的client 模块。</li>
-</ol>
+<h2 id="二-Node-js中模块化开发规范"><a href="#二-Node-js中模块化开发规范" class="headerlink" title="二. Node.js中模块化开发规范"></a>二. Node.js中模块化开发规范</h2><p>Node.js规定一个JavaScript文件就是一个模块，模块内部定义的变量和函数默认情况下在外部无法得到。<br>模块内部可以使用exports对象进行成员导出， 使用require方法导入其他模块。</p>
+<h2 id="三-自己写一个操作redis的client-模块。"><a href="#三-自己写一个操作redis的client-模块。" class="headerlink" title="三. 自己写一个操作redis的client 模块。"></a>三. 自己写一个操作redis的client 模块。</h2><blockquote>
+<p>首先我们需要安装nodejs环境</p>
 </blockquote>
 <ul>
-<li>首先我们要在nodejs中使用redis必须下载redis模块，在你的项目文件夹下执行下面命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install redis</span><br></pre></td></tr></table></figure>
-按习惯，我们先在项目文件夹下建一个文件夹modules再在这个文件夹下建一个文件夹redis<br>我希望把redis链接的相关信息写在一个配置文件而不是程序内，所以我首先创建一个redis的配置文件<br>文件名为config.json<br><code>config.json</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;redis&quot;</span>:&#123;</span><br><span class="line">		<span class="string">&quot;port&quot;</span>:<span class="string">&quot;6379&quot;</span>,</span><br><span class="line">		<span class="string">&quot;host&quot;</span>:<span class="string">&quot;localhost&quot;</span>,</span><br><span class="line">		<span class="string">&quot;password&quot;</span>:<span class="string">&quot;password&quot;</span>,</span><br><span class="line">		<span class="string">&quot;detect_buffers&quot;</span>: <span class="string">&quot;true&quot;</span> </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>首先我们要在nodejs中使用redis必须下载redis模块，在你的项目文件夹下执行下面命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install redis</span><br></pre></td></tr></table></figure></li>
 </ul>
-<blockquote>
+<h3 id="1-准备配置文件"><a href="#1-准备配置文件" class="headerlink" title="1.    准备配置文件"></a>1.    准备配置文件</h3><p>按习惯，我们先在项目文件夹下建一个文件夹modules再在这个文件夹下建一个文件夹redis<br>我希望把redis链接的相关信息写在一个配置文件而不是程序内，所以我首先创建一个redis的配置文件<br>文件名为config.json<br><code>config.json</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;redis&quot;</span>:&#123;</span><br><span class="line">		<span class="string">&quot;port&quot;</span>:<span class="string">&quot;6379&quot;</span>,</span><br><span class="line">		<span class="string">&quot;host&quot;</span>:<span class="string">&quot;localhost&quot;</span>,</span><br><span class="line">		<span class="string">&quot;password&quot;</span>:<span class="string">&quot;password&quot;</span>,</span><br><span class="line">		<span class="string">&quot;detect_buffers&quot;</span>: <span class="string">&quot;true&quot;</span> </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-引入相关模块"><a href="#2-引入相关模块" class="headerlink" title="2. 引入相关模块"></a>2. 引入相关模块</h3><blockquote>
 <p>开始写redisClient.js,<br>首先把redis插件和自定义的配置文件声明进来</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> redis = <span class="built_in">require</span>(<span class="string">&#x27;redis&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> redisOptions = <span class="built_in">require</span>(<span class="string">&#x27;./config&#x27;</span>).redis</span><br></pre></td></tr></table></figure>
-<blockquote>
+
+<h3 id="3-从redisOptions文件中读取并配置redis-options参数信息"><a href="#3-从redisOptions文件中读取并配置redis-options参数信息" class="headerlink" title="3. 从redisOptions文件中读取并配置redis options参数信息"></a>3. 从redisOptions文件中读取并配置redis options参数信息</h3><blockquote>
 <p>然后设置redis配置信息，出了连接方式还有缓存设置以及重连机制</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> options = &#123;</span><br><span class="line">  <span class="attr">host</span>: redisOptions.host,</span><br><span class="line">  <span class="attr">port</span>: redisOptions.port,</span><br><span class="line">  <span class="attr">password</span>: redisOptions.pass,</span><br><span class="line">  <span class="attr">detect_buffers</span>: redisOptions.detect_buffers, <span class="comment">// 传入buffer 返回也是buffer 否则会转换成String</span></span><br><span class="line">  <span class="attr">retry_strategy</span>: <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 重连机制</span></span><br><span class="line">    <span class="keyword">if</span> (options.error &amp;&amp; options.error.code === <span class="string">&quot;ECONNREFUSED&quot;</span>) &#123;</span><br><span class="line">      <span class="comment">// End reconnecting on a specific error and flush all commands with</span></span><br><span class="line">      <span class="comment">// a individual error</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;The server refused the connection&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (options.total_retry_time &gt; <span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span>) &#123;</span><br><span class="line">      <span class="comment">// End reconnecting after a specific timeout and flush all commands</span></span><br><span class="line">      <span class="comment">// with a individual error</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;Retry time exhausted&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (options.attempt &gt; <span class="number">10</span>) &#123;</span><br><span class="line">      <span class="comment">// End reconnecting with built in error</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// reconnect after</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.min(options.attempt * <span class="number">100</span>, <span class="number">3000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-定义模块方法"><a href="#4-定义模块方法" class="headerlink" title="4. 定义模块方法"></a>4. 定义模块方法</h3><blockquote>
+<p>接下来我们根据设置好的参数创建一个redis客户端对象&gt; 并且定义4个需要暴露在模块外使用的方法</p>
+<ol>
+<li>   setValue      //存储值</li>
+<li> getValue    //读取String</li>
+<li>   getHvalue    //读取hash</li>
+<li>   quit        //退出</li>
+</ol>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生成redis的client</span></span><br><span class="line"><span class="keyword">const</span> client = redis.createClient(options)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> setValue = <span class="function">()=&gt;</span>&#123;&#125;</span><br><span class="line"><span class="keyword">const</span> getValue = <span class="function">()=&gt;</span>&#123;&#125;</span><br><span class="line"><span class="keyword">const</span> getHValue = <span class="function">()=&gt;</span>&#123;&#125;</span><br><span class="line"><span class="keyword">const</span> quit = <span class="function">()=&gt;</span>&#123;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>完善方法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="comment">// 存储值</span></span><br><span class="line"><span class="keyword">const</span> setValue = <span class="function">(<span class="params">key, value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">    client.set(key, value)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">in</span> value) &#123;</span><br><span class="line">      client.hmset(key, item, value[item],redis.print)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 获取string</span></span><br><span class="line"><span class="keyword">const</span> getValue = <span class="function">(<span class="params">key</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    client.get(key, <span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        reject(err)</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        resolve(res)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 获取hash</span></span><br><span class="line"><span class="keyword">const</span> getHValue = <span class="function">(<span class="params">key</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    client.hgetall(key, <span class="function"><span class="keyword">function</span> (<span class="params">err, value</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        reject(err)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        resolve(value)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> quit = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	client.quit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
