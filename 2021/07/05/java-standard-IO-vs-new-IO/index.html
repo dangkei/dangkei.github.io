@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Java的标准IO与新IO有什么区别 | Feng</title>
+  <meta name="description" content="Java Standard IO vs New IO Java 新输入&#x2F;输出 (NIO)是随 JDK 1.4 引入的。从标准 IO 的角度出发，NIO 为 Java 库提供了高速、面向块的 IO。 通过定义类来保存数据，并通过在块中处理该数据，NIO 以一种java.io包无法使用的方式利用低级优化，而不使用本机代码。 在本文中，我们将重点确定标准 IO 与新 IO 之间最显着的差异，在决定在下一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的标准IO与新IO有什么区别">
+<meta property="og:url" content="http://dangkei.github.io/2021/07/05/java-standard-IO-vs-new-IO/index.html">
+<meta property="og:site_name" content="Bomblebee">
+<meta property="og:description" content="Java Standard IO vs New IO Java 新输入&#x2F;输出 (NIO)是随 JDK 1.4 引入的。从标准 IO 的角度出发，NIO 为 Java 库提供了高速、面向块的 IO。 通过定义类来保存数据，并通过在块中处理该数据，NIO 以一种java.io包无法使用的方式利用低级优化，而不使用本机代码。 在本文中，我们将重点确定标准 IO 与新 IO 之间最显着的差异，在决定在下一">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-05T07:42:37.000Z">
+<meta property="article:modified_time" content="2021-07-07T06:43:24.050Z">
+<meta property="article:author" content="Huang Feng">
+<meta property="article:tag" content="IO">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://dangkei.github.io/2021/07/05/java-standard-IO-vs-new-IO/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Bomblebee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/dangkei" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">dangkei</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Java Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 北京, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/dangkei" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/dangkei" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>既然来了就留下点什么吧!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/bug-marked/">bug marked</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coding/">coding</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devopts/">devopts</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IO/" rel="tag">IO</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Initialization/" rel="tag">Initialization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK8/" rel="tag">JDK8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/concepts/" rel="tag">concepts</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/import/" rel="tag">import</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring3/" rel="tag">spring3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static/" rel="tag">static</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/IO/" style="font-size: 13.5px;">IO</a> <a href="/tags/Initialization/" style="font-size: 13px;">Initialization</a> <a href="/tags/JDK8/" style="font-size: 13px;">JDK8</a> <a href="/tags/concepts/" style="font-size: 13px;">concepts</a> <a href="/tags/docker/" style="font-size: 14px;">docker</a> <a href="/tags/import/" style="font-size: 13px;">import</a> <a href="/tags/javascript/" style="font-size: 13px;">javascript</a> <a href="/tags/lambda/" style="font-size: 13.5px;">lambda</a> <a href="/tags/redis/" style="font-size: 13px;">redis</a> <a href="/tags/spring3/" style="font-size: 13px;">spring3</a> <a href="/tags/static/" style="font-size: 13px;">static</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/coding/">coding</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/07/28/code-optimization-js/" class="title">漂亮的javascript代码？易读还是难读？</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-28T03:38:00.000Z" itemprop="datePublished">2021-07-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/devopts/">devopts</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/07/23/how-to-use-docker-9/" class="title">how to use docker (9) images layer and cached</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-23T02:02:35.000Z" itemprop="datePublished">2021-07-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/devopts/">devopts</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/07/22/how-to-use-docker-8/" class="title">how to use docker (8) user docker compose build application</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-22T05:41:51.000Z" itemprop="datePublished">2021-07-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/devopts/">devopts</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/07/21/how-to-use-docker-7/" class="title">how to use docker (7)- Multi-Container-App</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-21T08:27:29.000Z" itemprop="datePublished">2021-07-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/devopts/">devopts</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/07/20/how-to-use-docker-6/" class="title">how to use docker (6) Persisting-Your-Data</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-07-20T02:39:29.000Z" itemprop="datePublished">2021-07-20</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-java-standard-IO-vs-new-IO" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java的标准IO与新IO有什么区别
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/07/05/java-standard-IO-vs-new-IO/" class="article-date">
+	  <time datetime="2021-07-05T07:42:37.000Z" itemprop="datePublished">2021-07-05</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/IO/" rel="tag">IO</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/07/05/java-standard-IO-vs-new-IO/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="Java-Standard-IO-vs-New-IO"><a href="#Java-Standard-IO-vs-New-IO" class="headerlink" title="Java Standard IO vs New IO"></a>Java Standard IO vs New IO</h1><blockquote>
+<p>Java 新输入/输出 (NIO)是随 JDK 1.4 引入的。从标准 IO 的角度出发，NIO 为 Java 库提供了高速、面向块的 IO。</p>
+<p>通过定义类来保存数据，并通过在块中处理该数据，NIO 以一种java.io包无法使用的方式利用低级优化，而不使用本机代码。</p>
+<p>在本文中，我们将重点确定标准 IO 与新 IO 之间最显着的差异，在决定在下一个项目中使用哪个之前，我们必须了解这些差异。</p>
+<p>调用标准 IO<br>Java IO是指计算机与世界其他部分之间或单个程序与计算机其他部分之间的接口。</p>
+<p>在 Java 编程中，IO 类直到最近才使用流比喻来实现。所有 IO 都被视为单个字节的移动，一次一个，通过名为 a 的对象Stream。</p>
+<p>Stream IO 用于联系外界。它也在内部使用，用于将对象转换为字节，然后再转换为对象。它被称为序列化和反序列化。</p>
+<p>介绍 Java 新 IO<br>Java NIO 的创建是为了让 Java 程序员无需编写自定义本机代码即可实现高速输入-输出操作。</p>
+<p>NIO 将最耗时的 I/O 活动（即填充和排空缓冲区）移回操作系统，从而大大提高速度。</p>
+<p>如果以上介绍让您感到口渴，请不要担心，随着我们的前进，您是否会感觉更好。让我们从找出差异开始。</p>
+<p>IO 和 NIO 的区别<br>IO 流与 NIO 块<br>标准 IO 库 ( java.io.<em>) 和新 IO ( java.nio.</em>)之间最重要的区别在于数据如何打包并从源传输到目标。如前所述，标准 I/O 处理流中的数据，而 NIO 处理块中的数据。</p>
+<p>甲面向流的I / O与数据系统处理的一个或多个字节一次。输入流产生一字节数据，输出流消耗一字节数据。为流数据创建过滤器非常容易。将几个过滤器链接在一起也相对简单，这样每个过滤器都可以在一个复杂的处理机制中发挥作用。</p>
+<p>重要的是字节不会缓存在任何地方。此外，我们不能在流中的数据中来回移动。如果您需要在从流中读取的数据中来回移动，我们必须首先将其缓存在缓冲区中。</p>
+<p>甲面向块的I / O系统涉及在块中的数据。每个操作在一个步骤中产生或消耗一个数据块。按块处理数据比按（流）字节处理数据快得多。您可以根据需要在缓冲区中前后移动。</p>
+<p>数据块在处理过程中为我们提供了更多的灵活性。但是，我们还需要检查缓冲区是否包含我们需要的所有数据，以便完全处理它。并且，我们需要确保在将更多数据读入缓冲区时，我们不会覆盖尚未处理的缓冲区中的数据。</p>
+<p>不利的一面是，面向块的 I/O 缺乏面向流 I/O 的一些优雅和简单。</p>
+<p>阅读更多：使用 Java NIO 读取文件的 3 种方法</p>
+<p>同步标准与异步新 IO<br>Java IO 的各种流都是阻塞的或同步的。这意味着，当一个线程调用read()orwrite()操作时，该线程被阻塞，直到有一些数据要读取，或者数据被完全写入。该线程将在此期间处于阻塞状态。这被认为是在现代语言中引入多线程的一个很好的充分理由。</p>
+<p>在异步 IO 中，线程可以请求将某些数据写入通道，但不会等待它完全写入。然后该线程可以继续并同时执行其他操作。通常这些线程在没有被 IO 调用阻塞的时候将它们的空闲时间花在同时在其他通道上执行 IO 上。也就是说，单个线程现在可以管理多个输入和输出通道。</p>
+<p>同步程序通常不得不求助于轮询，或者创建很多很多线程来处理大量连接。使用异步 I/O，您可以在任意数量的通道上监听 I/O 事件，无需轮询和额外线程。</p>
+<p>异步 I/O 中的中心对象称为Selector。Selector 是您注册对各种 IO 事件感兴趣的地方，它是告诉您这些事件何时发生的对象。所以，我们需要做的第一件事就是创建一个 Selector。</p>
+<p>Selector selector = Selector.open();<br>稍后，我们将register()在各种Channel对象上调用该方法，以注册我们对这些对象内部发生的 IO 事件的兴趣。的第一个参数register()始终是Selector。</p>
+<p>阅读更多：如何在 Java NIO 中定义路径</p>
+<p>Java IO 与 NIO API<br>不用猜测使用 NIO 时的 API 调用看起来与使用 IO 时的不同。在 NIO 中，不是仅仅从例如 an 中读取一个字节的数据字节，而是InputStream必须首先将数据读入 a Buffer，然后从其后进行处理。</p>
+<p>使用标准 IO 读取文件的 Java 示例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line">&gt;<span class="keyword">import</span> java.io.FileReader;</span><br><span class="line">&gt;<span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WithoutNIOExample</span></span></span><br><span class="line"><span class="class">&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">       BufferedReader br = <span class="keyword">null</span>;</span><br><span class="line">       String sCurrentLine = <span class="keyword">null</span>;</span><br><span class="line">       <span class="keyword">try</span></span><br><span class="line">       &#123;</span><br><span class="line">           br = <span class="keyword">new</span> BufferedReader(</span><br><span class="line">           <span class="keyword">new</span> FileReader(<span class="string">&quot;test.txt&quot;</span>));</span><br><span class="line">           <span class="keyword">while</span> ((sCurrentLine = br.readLine()) != <span class="keyword">null</span>)</span><br><span class="line">           &#123;</span><br><span class="line">               System.out.println(sCurrentLine);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">catch</span> (IOException e)</span><br><span class="line">       &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">finally</span></span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">try</span></span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">if</span> (br != <span class="keyword">null</span>)</span><br><span class="line">               br.close();</span><br><span class="line">           &#125; <span class="keyword">catch</span> (IOException ex)</span><br><span class="line">           &#123;</span><br><span class="line">               ex.printStackTrace();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>使用 New IO 读取文件的 Java 示例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">import</span> java.io.IOException;</span><br><span class="line">&gt;<span class="keyword">import</span> java.io.RandomAccessFile;</span><br><span class="line">&gt;<span class="keyword">import</span> java.nio.ByteBuffer;</span><br><span class="line">&gt;<span class="keyword">import</span> java.nio.channels.FileChannel;</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadFileWithFixedSizeBuffer</span></span></span><br><span class="line"><span class="class">&gt;</span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException</span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">       RandomAccessFile aFile = <span class="keyword">new</span> RandomAccessFile</span><br><span class="line">               (<span class="string">&quot;test.txt&quot;</span>, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">       FileChannel inChannel = aFile.getChannel();</span><br><span class="line">       ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">       <span class="keyword">while</span>(inChannel.read(buffer) &gt; <span class="number">0</span>)</span><br><span class="line">       &#123;</span><br><span class="line">           buffer.flip();</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; buffer.limit(); i++)</span><br><span class="line">           &#123;</span><br><span class="line">               System.out.print((<span class="keyword">char</span>) buffer.get());</span><br><span class="line">           &#125;</span><br><span class="line">           buffer.clear(); <span class="comment">// do something with the data and clear/compact it.</span></span><br><span class="line">       &#125;</span><br><span class="line">       inChannel.close();</span><br><span class="line">       aFile.close();</span><br><span class="line">   &#125;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>结论<br>NIO 允许您仅使用单个（或更少）线程来管理多个通道，但代价是解析数据可能比使用标准 IO 从阻塞流中读取数据要复杂一些。</p>
+<p>如果您需要同时管理数千个打开的连接，每个连接只发送少量数据，例如聊天服务器，在 NIO 中实现服务器可能是一个优势。同样，如果您需要与其他计算机保持大量开放连接，例如在 P2P 网络中，使用单个线程来管理所有出站连接可能是一个优势。</p>
+<p>如果您的连接较少且带宽非常高，一次发送大量数据，则应该选择标准 IO 服务器实现。</p>
+</blockquote>
+<p>本文翻译自：<br><a target="_blank" rel="noopener" href="https://howtodoinjava.com/java/io/difference-between-io-nio/">https://howtodoinjava.com/java/io/difference-between-io-nio/</a> </p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://dangkei.github.io/2021/07/05/java-standard-IO-vs-new-IO/" title="Java的标准IO与新IO有什么区别" target="_blank" rel="external">http://dangkei.github.io/2021/07/05/java-standard-IO-vs-new-IO/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/dangkei" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/dangkei" target="_blank"><span class="text-dark">dangkei</span><small class="ml-1x">Java Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/07/06/Java-double-brace-initialization/" title="Java大括号初始化对象"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/07/01/how-java-io-work/" title="Java IO内部是如何工作的?"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/dangkei" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/dangkei" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
