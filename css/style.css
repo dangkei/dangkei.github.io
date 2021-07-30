@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+@import "layui";
 /**
  * global variables and mixins
  */
@@ -9209,4 +9209,3 @@ body.okayNav-loaded {
   }
 }
 
-@import "layui"
