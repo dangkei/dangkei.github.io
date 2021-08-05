@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://dangkei.github.io/2021/08/02/design-parttern-js-value-validation/</loc>
+    <lastmod>2021-08-05</lastmod>
+  </url>
+  <url>
+    <loc>http://dangkei.github.io/2021/07/28/code-optimization-js/</loc>
+    <lastmod>2021-08-02</lastmod>
+  </url>
+  <url>
     <loc>http://dangkei.github.io/2020/07/26/java-basic-concepts/</loc>
     <lastmod>2021-07-30</lastmod>
   </url>
@@ -18,10 +26,6 @@
   </url>
   <url>
     <loc>http://dangkei.github.io/2021/07/21/how-to-use-docker-7/</loc>
-    <lastmod>2021-07-29</lastmod>
-  </url>
-  <url>
-    <loc>http://dangkei.github.io/2021/07/28/code-optimization-js/</loc>
     <lastmod>2021-07-29</lastmod>
   </url>
   <url>

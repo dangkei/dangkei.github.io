@@ -2,14 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://dangkei.github.io/about/index.html</loc>
+    <loc>http://dangkei.github.io/2021/08/02/design-parttern-js-value-validation/</loc>
+    
+    <lastmod>2021-08-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/2021/07/28/code-optimization-js/</loc>
+    
+    <lastmod>2021-08-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/2020/07/26/java-basic-concepts/</loc>
     
     <lastmod>2021-07-30</lastmod>
     
   </url>
   
   <url>
-    <loc>http://dangkei.github.io/2020/07/26/java-basic-concepts/</loc>
+    <loc>http://dangkei.github.io/about/index.html</loc>
     
     <lastmod>2021-07-30</lastmod>
     
@@ -45,13 +59,6 @@
   
   <url>
     <loc>http://dangkei.github.io/404.html</loc>
-    
-    <lastmod>2021-07-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://dangkei.github.io/2021/07/28/code-optimization-js/</loc>
     
     <lastmod>2021-07-29</lastmod>
     
@@ -186,7 +193,7 @@
 
   <url>
     <loc>http://dangkei.github.io/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -194,84 +201,98 @@
   
   <url>
     <loc>http://dangkei.github.io/tags/IO/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/static/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/import/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/Initialization/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/lambda/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/redis/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/docker/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/spring3/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/JDK8/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/concepts/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/javascript/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/nodejs/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/tags/expression/</loc>
+    <lastmod>2021-08-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/tags/design/</loc>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -280,35 +301,42 @@
   
   <url>
     <loc>http://dangkei.github.io/categories/hexo/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/java/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/devopts/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/bug-marked/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/coding/</loc>
-    <lastmod>2021-07-30</lastmod>
+    <lastmod>2021-08-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/categories/javascript/</loc>
+    <lastmod>2021-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
