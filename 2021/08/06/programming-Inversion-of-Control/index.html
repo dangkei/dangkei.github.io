@@ -17,20 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>404 Not Found：该页无法显示 | Feng</title>
-  <meta name="description" content="中国奥运健儿！加油！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404 Not Found：该页无法显示">
-<meta property="og:url" content="http://dangkei.github.io/404.html">
+  <title>如何理解控制反转(IOC)和依赖注入(DI)？ | Feng</title>
+  <meta name="description" content="个人理解 要说控制反转和依赖注入不得不说Spring。Spring本身是以个容器的框架。 开发传统Java编程程序从一般都是从main()方法开始，当需要创建一个对象的都会区new一个Object。 在spring框架出现后有了bean的概念，spring是一个容器框架，spring管理bean从容器启动后接手bean的管理和控制程序调用的时候 直接从springcontext里去取bean的实例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何理解控制反转(IOC)和依赖注入(DI)？">
+<meta property="og:url" content="http://dangkei.github.io/2021/08/06/programming-Inversion-of-Control/index.html">
 <meta property="og:site_name" content="Bomblebee">
-<meta property="og:description" content="中国奥运健儿！加油！">
+<meta property="og:description" content="个人理解 要说控制反转和依赖注入不得不说Spring。Spring本身是以个容器的框架。 开发传统Java编程程序从一般都是从main()方法开始，当需要创建一个对象的都会区new一个Object。 在spring框架出现后有了bean的概念，spring是一个容器框架，spring管理bean从容器启动后接手bean的管理和控制程序调用的时候 直接从springcontext里去取bean的实例">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-29T03:43:12.588Z">
-<meta property="article:modified_time" content="2021-07-29T03:43:12.588Z">
+<meta property="article:published_time" content="2021-08-06T08:27:26.000Z">
+<meta property="article:modified_time" content="2021-08-09T01:58:38.442Z">
 <meta property="article:author" content="Huang Feng">
+<meta property="article:tag" content="programming">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://dangkei.github.io/404.html">
+  <link rel="canonical" href="http://dangkei.github.io/2021/08/06/programming-Inversion-of-Control/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Bomblebee" type="application/atom+xml">
   
@@ -41,6 +42,8 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
   
   
   
@@ -343,14 +346,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-programming-Inversion-of-Control" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      404 Not Found：该页无法显示
+      如何理解控制反转(IOC)和依赖注入(DI)？
     </h1>
   
 
@@ -358,12 +361,22 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/404.html" class="article-date">
-	  <time datetime="2021-07-29T03:43:12.588Z" itemprop="datePublished">2021-07-29</time>
+	<a href="/2021/08/06/programming-Inversion-of-Control/" class="article-date">
+	  <time datetime="2021-08-06T08:27:26.000Z" itemprop="datePublished">2021-08-06</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/programming/">programming</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/programming/" rel="tag">programming</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -374,13 +387,20 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/404.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/08/06/programming-Inversion-of-Control/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="中国奥运健儿！加油！"><a href="#中国奥运健儿！加油！" class="headerlink" title="中国奥运健儿！加油！"></a><font face="STCAIYUN" color=red>中国奥运健儿！加油！</font></h1>
+        <h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2><blockquote>
+<p>要说控制反转和依赖注入不得不说Spring。Spring本身是以个容器的框架。 开发传统Java编程程序从一般都是从main()方法开始，当需要创建一个<br>对象的都会区new一个Object。 在spring框架出现后有了bean的概念，spring是一个容器框架，spring管理bean从容器启动后接手bean的管理和控制<br>程序调用的时候 直接从springcontext里去取bean的实例。 这样我们不用重复创建同一对象， 节省了大量的系统资源。</p>
+</blockquote>
+<h2 id="IoC什么"><a href="#IoC什么" class="headerlink" title="IoC什么"></a>IoC什么</h2><pre><code>- IoC (Inversion of Control)
+</code></pre>
+<h2 id="DI是什么"><a href="#DI是什么" class="headerlink" title="DI是什么"></a>DI是什么</h2><pre><code>- DI (Dependency Injection)
+</code></pre>
+
       
     </div>
     <div class="article-footer">
@@ -389,7 +409,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://dangkei.github.io/404.html" title="404 Not Found：该页无法显示" target="_blank" rel="external">http://dangkei.github.io/404.html</a>
+      <a href="http://dangkei.github.io/2021/08/06/programming-Inversion-of-Control/" title="如何理解控制反转(IOC)和依赖注入(DI)？" target="_blank" rel="external">http://dangkei.github.io/2021/08/06/programming-Inversion-of-Control/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -420,12 +440,28 @@
   </article>
   
     
+  <section id="comments">
+  	
+
+    
+  </section>
+
 
   
 </div>
 
   <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2021/08/02/design-parttern-js-value-validation/" title="设计模式之策略模式-js表单验证示例"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
   
   <!-- Button trigger modal -->
@@ -541,6 +577,34 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: '如何理解控制反转(IOC)和依赖注入(DI)？', 
+  owner: 'dangkei', // 可以是你的GitHub用户名，也可以是github id
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  }
+})
+gitment.render('comments')
+</script>
 
 
 

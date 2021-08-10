@@ -17,20 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>404 Not Found：该页无法显示 | Feng</title>
-  <meta name="description" content="中国奥运健儿！加油！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404 Not Found：该页无法显示">
-<meta property="og:url" content="http://dangkei.github.io/404.html">
+  <title>java基础-集合使用中的各类问题 | Feng</title>
+  <meta name="description" content="Collection和Collections- Collection 是一个接口 集合类需要实现的接口 - Collection 是一个工具类包含很多集合操作的静态方法  List和Set都是接口- List 集合元素有序，可重复 - Set  集合元素无序，不可以重复  ArrayList，LinkedList，Vertor都实现 List接口- LinkedList类是一个双链表实现了 Deq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础-集合使用中的各类问题">
+<meta property="og:url" content="http://dangkei.github.io/2020/08/10/java-basic-collections/index.html">
 <meta property="og:site_name" content="Bomblebee">
-<meta property="og:description" content="中国奥运健儿！加油！">
+<meta property="og:description" content="Collection和Collections- Collection 是一个接口 集合类需要实现的接口 - Collection 是一个工具类包含很多集合操作的静态方法  List和Set都是接口- List 集合元素有序，可重复 - Set  集合元素无序，不可以重复  ArrayList，LinkedList，Vertor都实现 List接口- LinkedList类是一个双链表实现了 Deq">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-29T03:43:12.588Z">
-<meta property="article:modified_time" content="2021-07-29T03:43:12.588Z">
+<meta property="article:published_time" content="2020-08-10T06:14:22.000Z">
+<meta property="article:modified_time" content="2021-08-10T09:19:53.224Z">
 <meta property="article:author" content="Huang Feng">
+<meta property="article:tag" content="collection">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://dangkei.github.io/404.html">
+  <link rel="canonical" href="http://dangkei.github.io/2020/08/10/java-basic-collections/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Bomblebee" type="application/atom+xml">
   
@@ -41,6 +42,8 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
   
   
   
@@ -343,14 +346,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-java-basic-collections" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      404 Not Found：该页无法显示
+      java基础-集合使用中的各类问题
     </h1>
   
 
@@ -358,12 +361,22 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/404.html" class="article-date">
-	  <time datetime="2021-07-29T03:43:12.588Z" itemprop="datePublished">2021-07-29</time>
+	<a href="/2020/08/10/java-basic-collections/" class="article-date">
+	  <time datetime="2020-08-10T06:14:22.000Z" itemprop="datePublished">2020-08-10</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/collection/" rel="tag">collection</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -374,13 +387,25 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/404.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/10/java-basic-collections/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="中国奥运健儿！加油！"><a href="#中国奥运健儿！加油！" class="headerlink" title="中国奥运健儿！加油！"></a><font face="STCAIYUN" color=red>中国奥运健儿！加油！</font></h1>
+        <h2 id="Collection和Collections"><a href="#Collection和Collections" class="headerlink" title="Collection和Collections"></a>Collection和Collections</h2><pre><code>- Collection 是一个接口 集合类需要实现的接口
+- Collection 是一个工具类包含很多集合操作的静态方法
+</code></pre>
+<h2 id="List和Set都是接口"><a href="#List和Set都是接口" class="headerlink" title="List和Set都是接口"></a>List和Set都是接口</h2><pre><code>- List 集合元素有序，可重复
+- Set  集合元素无序，不可以重复
+</code></pre>
+<h2 id="ArrayList，LinkedList，Vertor都实现-List接口"><a href="#ArrayList，LinkedList，Vertor都实现-List接口" class="headerlink" title="ArrayList，LinkedList，Vertor都实现 List接口"></a>ArrayList，LinkedList，Vertor都实现 List<E>接口</h2><pre><code>- LinkedList类是一个双链表实现了 Deque&lt;E&gt;接口，添加删除元素的性能优于ArrayList，get，set性能不如ArrayList
+- ArrayList在数组结尾增加一个元素的开销和LinkedList是一样的， 但是在数组中间加入一项有可能会造成数组重新分配，性能开销巨大。ArrayList列表中删除一个元素列表会移动，LinkedList则不会
+- Vector比ArrayList在多线程下更为可靠，ArrayList比Vector在单线程下存储性能更优越。
+</code></pre>
+<h2 id="SynchronizedList和Vector又有和区别"><a href="#SynchronizedList和Vector又有和区别" class="headerlink" title="SynchronizedList和Vector又有和区别"></a>SynchronizedList和Vector又有和区别</h2><pre><code>- SynchronizedList使用同步代码块，Vector使用方法同步，同步范围大小与性能成反比。
+</code></pre>
+
       
     </div>
     <div class="article-footer">
@@ -389,7 +414,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://dangkei.github.io/404.html" title="404 Not Found：该页无法显示" target="_blank" rel="external">http://dangkei.github.io/404.html</a>
+      <a href="http://dangkei.github.io/2020/08/10/java-basic-collections/" title="java基础-集合使用中的各类问题" target="_blank" rel="external">http://dangkei.github.io/2020/08/10/java-basic-collections/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -420,12 +445,32 @@
   </article>
   
     
+  <section id="comments">
+  	
+
+    
+  </section>
+
 
   
 </div>
 
   <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/07/01/import-rules/" title="静态导入声明的一些重要规则"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/07/26/java-basic-concepts/" title="common knowledge of java (避坑指南)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
   
   <!-- Button trigger modal -->
@@ -541,6 +586,34 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: 'java基础-集合使用中的各类问题', 
+  owner: 'dangkei', // 可以是你的GitHub用户名，也可以是github id
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  }
+})
+gitment.render('comments')
+</script>
 
 
 
