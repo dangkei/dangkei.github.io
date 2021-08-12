@@ -26,7 +26,7 @@
 <meta property="og:description" content="Collection和Collections- Collection 是一个接口 集合类需要实现的接口 - Collection 是一个工具类包含很多集合操作的静态方法  List和Set都是接口- List 集合元素有序，可重复 - Set  集合元素无序，不可以重复  ArrayList，LinkedList，Vertor都实现 List接口- LinkedList类是一个双链表实现了 Deq">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-10T06:14:22.000Z">
-<meta property="article:modified_time" content="2021-08-10T09:23:18.423Z">
+<meta property="article:modified_time" content="2021-08-12T06:46:40.001Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="collection">
 <meta name="twitter:card" content="summary">
@@ -407,6 +407,25 @@
 - 同步范围大小与性能成反比。
 - 同步代码块可以控制锁的作用域，同步方法的作用域是整个方法
 - 静态代码块可以选择加锁对象， 静态方法只能对this加锁
+- SynchronizedList并未对listIterator和listIterator(int index)做同步处理，但是Vector却做了，所以在迭代时SynchronizedList需要手动加锁
+- 但是ArrayList和LinkedList可以转换成SynchronizedList变为线程安全的List
+</code></pre>
+<h2 id="fail-fast与fail-fast"><a href="#fail-fast与fail-fast" class="headerlink" title="fail-fast与fail-fast"></a>fail-fast与fail-fast</h2><pre><code>- java.util 下所有集合fail-fast机制 非并发情景下使用
+- java.util.concurrent. 下所有集合fail-saft机制 并发情境下使用
+- ConcurrentModificationException 错误处理 使用CopyOnWriteArrayList 替代ArrayList
+</code></pre>
+<blockquote>
+<p>CopyOnWriteArrayList对 Add/Remove 加锁 对读不加锁 是读写分离的。读出数据可能不准，Vector读写互斥同时只能做一个处理读出数据准确</p>
+</blockquote>
+<h2 id="删除集合元素的几种方法"><a href="#删除集合元素的几种方法" class="headerlink" title="删除集合元素的几种方法"></a>删除集合元素的几种方法</h2><pre><code>- 1. 使用for循环，不推荐 
+- 2. 使用Iterator的remove方法
+</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Iterator iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext())&#123;</span><br><span class="line">	iterator.remove();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>- 3. 使用filter过滤(JDK1.8)
+</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">items.stream().filter(</span><br><span class="line">	item-&gt;item.equals(<span class="string">&quot;xxx&quot;</span>);</span><br><span class="line">).collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
+<pre><code>- 4. 使用增强for循环， 删除后从循环中退出 ，适用只需删除一个符合条件元素
+- 5. 使用fail-saft的集合类处理
 </code></pre>
 
       
