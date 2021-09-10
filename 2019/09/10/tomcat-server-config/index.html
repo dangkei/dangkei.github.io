@@ -18,15 +18,15 @@
   
   
   <title>tomcat服务器配置 | Feng</title>
-  <meta name="description" content="Tomcat 服务器配置1. server.xml配置文件 配置静态资源路径  在之间增加    如果想要访问目录时显示静态资源文件列表  修改 conf&#x2F;web.xml  listings 改为 true  1234&lt;init-param&gt;&lt;param-name&gt; listings &lt;&#x2F;param-name&gt;&lt;param-value&gt; true &amp;">
+  <meta name="description" content="Tomcat 服务器配置1. server.xml配置文件 配置静态资源路径  在之间增加   1&lt;Context path&#x3D;&quot;&#x2F;webContext&quot; docBase&#x3D;&quot;D:\wwwRoot&quot; reloadable&#x3D;&quot;true&quot; debug&#x3D;&quot;0&quot; &#x2F;&gt; 如果想要访问目录时显示静态资源文件列表  修改 c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tomcat服务器配置">
 <meta property="og:url" content="http://dangkei.github.io/2019/09/10/tomcat-server-config/index.html">
 <meta property="og:site_name" content="Bomblebee">
-<meta property="og:description" content="Tomcat 服务器配置1. server.xml配置文件 配置静态资源路径  在之间增加    如果想要访问目录时显示静态资源文件列表  修改 conf&#x2F;web.xml  listings 改为 true  1234&lt;init-param&gt;&lt;param-name&gt; listings &lt;&#x2F;param-name&gt;&lt;param-value&gt; true &amp;">
+<meta property="og:description" content="Tomcat 服务器配置1. server.xml配置文件 配置静态资源路径  在之间增加   1&lt;Context path&#x3D;&quot;&#x2F;webContext&quot; docBase&#x3D;&quot;D:\wwwRoot&quot; reloadable&#x3D;&quot;true&quot; debug&#x3D;&quot;0&quot; &#x2F;&gt; 如果想要访问目录时显示静态资源文件列表  修改 c">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-09-10T06:36:07.000Z">
-<meta property="article:modified_time" content="2021-09-10T06:45:36.555Z">
+<meta property="article:modified_time" content="2021-09-10T06:53:03.765Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="tomcat">
 <meta name="twitter:card" content="summary">
@@ -397,8 +397,8 @@
 <li><p>配置静态资源路径</p>
 <blockquote>
 <p>在<host></host>之间增加 </p>
-<Context path="/test" docBase="C:\tstest" reloadable="true" debug="0" /></blockquote>
-</li>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">&quot;/webContext&quot;</span> <span class="attr">docBase</span>=<span class="string">&quot;D:\wwwRoot&quot;</span> <span class="attr">reloadable</span>=<span class="string">&quot;true&quot;</span> <span class="attr">debug</span>=<span class="string">&quot;0&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>如果想要访问目录时显示静态资源文件列表</p>
 <blockquote>
 <p>修改 conf/web.xml  listings 改为 true</p>
