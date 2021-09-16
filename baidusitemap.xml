@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://dangkei.github.io/2021/09/16/kubernetes-setup-on-centos7/</loc>
+    <lastmod>2021-09-16</lastmod>
+  </url>
+  <url>
+    <loc>http://dangkei.github.io/2021/09/16/docker-setup-on-centos/</loc>
+    <lastmod>2021-09-16</lastmod>
+  </url>
+  <url>
     <loc>http://dangkei.github.io/2019/09/10/tomcat-server-config/</loc>
     <lastmod>2021-09-10</lastmod>
   </url>
   <url>
     <loc>http://dangkei.github.io/2021/07/28/code-optimization-js/</loc>
     <lastmod>2021-08-28</lastmod>
+  </url>
+  <url>
+    <loc>http://dangkei.github.io/2021/07/06/java-io/</loc>
+    <lastmod>2021-08-22</lastmod>
   </url>
   <url>
     <loc>http://dangkei.github.io/2021/08/17/java-connect-mysql/</loc>
@@ -75,6 +87,26 @@
   <url>
     <loc>http://dangkei.github.io/2021/07/19/how-to-use-docker-4/</loc>
     <lastmod>2021-07-21</lastmod>
+  </url>
+  <url>
+    <loc>http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/</loc>
+    <lastmod>2021-07-20</lastmod>
+  </url>
+  <url>
+    <loc>http://dangkei.github.io/2021/07/20/how-to-share-images/</loc>
+    <lastmod>2021-07-20</lastmod>
+  </url>
+  <url>
+    <loc>http://dangkei.github.io/2021/07/19/create-docker-image/</loc>
+    <lastmod>2021-07-19</lastmod>
+  </url>
+  <url>
+    <loc>http://dangkei.github.io/2021/07/12/how-to-use-hub-docker/</loc>
+    <lastmod>2021-07-19</lastmod>
+  </url>
+  <url>
+    <loc>http://dangkei.github.io/2021/09/16/hello-world/</loc>
+    <lastmod>2021-07-12</lastmod>
   </url>
   <url>
     <loc>http://dangkei.github.io/2021/07/09/lambda-expressions/</loc>
