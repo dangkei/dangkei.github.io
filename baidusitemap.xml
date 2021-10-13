@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://dangkei.github.io/2021/10/13/oracle11g-setup-restore-data/</loc>
+    <lastmod>2021-10-13</lastmod>
+  </url>
+  <url>
     <loc>http://dangkei.github.io/2021/09/16/kubernetes-setup-on-centos7/</loc>
     <lastmod>2021-09-16</lastmod>
   </url>
@@ -87,10 +91,6 @@
   <url>
     <loc>http://dangkei.github.io/2021/07/19/how-to-use-docker-4/</loc>
     <lastmod>2021-07-21</lastmod>
-  </url>
-  <url>
-    <loc>http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/</loc>
-    <lastmod>2021-07-20</lastmod>
   </url>
   <url>
     <loc>http://dangkei.github.io/2021/07/20/how-to-share-images/</loc>

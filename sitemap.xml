@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://dangkei.github.io/2021/10/13/oracle11g-setup-restore-data/</loc>
+    
+    <lastmod>2021-10-13</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://dangkei.github.io/2021/09/16/kubernetes-setup-on-centos7/</loc>
     
     <lastmod>2021-09-16</lastmod>
@@ -170,13 +177,6 @@
   </url>
   
   <url>
-    <loc>http://dangkei.github.io/2021/07/20/how-use-docker-Persisting-our-Data/</loc>
-    
-    <lastmod>2021-07-20</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://dangkei.github.io/2021/07/20/how-to-share-images/</loc>
     
     <lastmod>2021-07-20</lastmod>
@@ -277,7 +277,7 @@
 
   <url>
     <loc>http://dangkei.github.io/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -285,147 +285,161 @@
   
   <url>
     <loc>http://dangkei.github.io/tags/IO/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/static/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/import/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/Initialization/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/lambda/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/redis/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/docker/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/spring3/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/JDK8/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/concepts/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/javascript/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/nodejs/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/expression/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/design-pattern/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/collection/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/programming/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/MySql/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/Pool/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/tomcat/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/k8s/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/tags/kubernetes/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/tags/oracle/</loc>
+    <lastmod>2021-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/tags/backup/</loc>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -434,56 +448,70 @@
   
   <url>
     <loc>http://dangkei.github.io/categories/hexo/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/java/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/devopts/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/bug-marked/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/coding/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/javascript/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/programming/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://dangkei.github.io/categories/middleware/</loc>
-    <lastmod>2021-09-16</lastmod>
+    <lastmod>2021-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/categories/database/</loc>
+    <lastmod>2021-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://dangkei.github.io/categories/database/oracle/</loc>
+    <lastmod>2021-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
