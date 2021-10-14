@@ -21,17 +21,17 @@
   <meta name="description" content="Windows Docker-Desktop环境下Centos下安装 docker步骤及遇到问题1. windows下docker-desktop-data 修改存储分区 额外介绍，随着windows上docker-desktop使用时间久了， C盘空间越来越小， 所以先把数据迁移到电脑的D分区  1234wsl --listwsl --export docker-desktop-data  d:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows Docker-Desktop环境下Centos下安装 docker步骤及遇到问题">
-<meta property="og:url" content="http://dangkei.github.io/2021/09/16/docker-setup-on-centos/index.html">
+<meta property="og:url" content="http://dangkei.github.io/2021/09/16/docker-setup-on-centos7/index.html">
 <meta property="og:site_name" content="Bomblebee">
 <meta property="og:description" content="Windows Docker-Desktop环境下Centos下安装 docker步骤及遇到问题1. windows下docker-desktop-data 修改存储分区 额外介绍，随着windows上docker-desktop使用时间久了， C盘空间越来越小， 所以先把数据迁移到电脑的D分区  1234wsl --listwsl --export docker-desktop-data  d:">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-16T08:59:06.000Z">
-<meta property="article:modified_time" content="2021-09-16T10:05:51.902Z">
+<meta property="article:modified_time" content="2021-10-13T06:44:02.123Z">
 <meta property="article:author" content="Huang Feng">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://dangkei.github.io/2021/09/16/docker-setup-on-centos/index.html">
+  <link rel="canonical" href="http://dangkei.github.io/2021/09/16/docker-setup-on-centos7/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Bomblebee" type="application/atom+xml">
   
@@ -295,7 +295,7 @@
                 <a class="category-link" href="/categories/devopts/">devopts</a>
               </p>
               <p class="item-title">
-                <a href="/2021/09/16/docker-setup-on-centos/" class="title">Windows Docker-Desktop环境下Centos下安装 docker步骤及遇到问题</a>
+                <a href="/2021/09/16/kubernetes-setup-on-centos7/" class="title">Centos7下kubernetes 集群搭建</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-09-16T08:59:06.000Z" itemprop="datePublished">2021-09-16</time>
@@ -310,7 +310,7 @@
                 <a class="category-link" href="/categories/devopts/">devopts</a>
               </p>
               <p class="item-title">
-                <a href="/2021/09/16/kubernetes-setup-on-centos7/" class="title">Centos7下kubernetes 集群搭建</a>
+                <a href="/2021/09/16/docker-setup-on-centos7/" class="title">Windows Docker-Desktop环境下Centos下安装 docker步骤及遇到问题</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-09-16T08:59:06.000Z" itemprop="datePublished">2021-09-16</time>
@@ -346,7 +346,7 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-docker-setup-on-centos" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-docker-setup-on-centos7" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
@@ -361,7 +361,7 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2021/09/16/docker-setup-on-centos/" class="article-date">
+	<a href="/2021/09/16/docker-setup-on-centos7/" class="article-date">
 	  <time datetime="2021-09-16T08:59:06.000Z" itemprop="datePublished">2021-09-16</time>
 	</a>
 </span>
@@ -387,7 +387,7 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/09/16/docker-setup-on-centos/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/09/16/docker-setup-on-centos7/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
@@ -396,7 +396,7 @@
         <h1 id="Windows-Docker-Desktop环境下Centos下安装-docker步骤及遇到问题"><a href="#Windows-Docker-Desktop环境下Centos下安装-docker步骤及遇到问题" class="headerlink" title="Windows Docker-Desktop环境下Centos下安装 docker步骤及遇到问题"></a>Windows Docker-Desktop环境下Centos下安装 docker步骤及遇到问题</h1><h2 id="1-windows下docker-desktop-data-修改存储分区"><a href="#1-windows下docker-desktop-data-修改存储分区" class="headerlink" title="1. windows下docker-desktop-data 修改存储分区"></a>1. windows下docker-desktop-data 修改存储分区</h2><blockquote>
 <p>额外介绍，随着windows上docker-desktop使用时间久了， C盘空间越来越小， 所以先把数据迁移到电脑的D分区</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wsl --list</span><br><span class="line">wsl --<span class="built_in">export</span> docker-desktop-data  d:\docekr\data\docker-desktop-data-tar</span><br><span class="line">wsl --unregister docker-desktop-data</span><br><span class="line">wsl --imporr d:\docker\data d:\docker\data\docker-desktop-data.tar</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wsl --list</span><br><span class="line">wsl --<span class="built_in">export</span> docker-desktop-data  d:\docker\data\docker-desktop-data.tar</span><br><span class="line">wsl --unregister docker-desktop-data</span><br><span class="line">wsl --import d:\docker\data d:\docker\data\docker-desktop-data.tar</span><br></pre></td></tr></table></figure>
 
 
 
@@ -441,7 +441,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://dangkei.github.io/2021/09/16/docker-setup-on-centos/" title="Windows Docker-Desktop环境下Centos下安装 docker步骤及遇到问题" target="_blank" rel="external">http://dangkei.github.io/2021/09/16/docker-setup-on-centos/</a>
+      <a href="http://dangkei.github.io/2021/09/16/docker-setup-on-centos7/" title="Windows Docker-Desktop环境下Centos下安装 docker步骤及遇到问题" target="_blank" rel="external">http://dangkei.github.io/2021/09/16/docker-setup-on-centos7/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -488,12 +488,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2021/09/16/hello-world/" title="Hello hexo github"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2021/09/16/kubernetes-setup-on-centos7/" title="Centos7下kubernetes 集群搭建"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2021/09/16/kubernetes-setup-on-centos7/" title="Centos7下kubernetes 集群搭建"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2021/08/17/java-connect-mysql/" title="java连接MySql数据库"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
